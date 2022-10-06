@@ -8,14 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		73B6A2F828EF6F1C00D9DCB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */; };
-		73B6A2FA28EF6F1C00D9DCB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A2F928EF6F1C00D9DCB6 /* SceneDelegate.swift */; };
-		73B6A2FC28EF6F1C00D9DCB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A2FB28EF6F1C00D9DCB6 /* ViewController.swift */; };
-		73B6A2FF28EF6F1C00D9DCB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B6A2FD28EF6F1C00D9DCB6 /* Main.storyboard */; };
+		73B6A2FC28EF6F1C00D9DCB6 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A2FB28EF6F1C00D9DCB6 /* LoginVC.swift */; };
 		73B6A30128EF6F1D00D9DCB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73B6A30028EF6F1D00D9DCB6 /* Assets.xcassets */; };
 		73B6A30428EF6F1D00D9DCB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B6A30228EF6F1D00D9DCB6 /* LaunchScreen.storyboard */; };
-		73B6A30F28EF6F1D00D9DCB6 /* FlashHRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A30E28EF6F1D00D9DCB6 /* FlashHRTests.swift */; };
-		73B6A31928EF6F1D00D9DCB6 /* FlashHRUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A31828EF6F1D00D9DCB6 /* FlashHRUITests.swift */; };
-		73B6A31B28EF6F1D00D9DCB6 /* FlashHRUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A31A28EF6F1D00D9DCB6 /* FlashHRUITestsLaunchTests.swift */; };
+		73B6A32928EF6FB100D9DCB6 /* LoginTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A32828EF6FB100D9DCB6 /* LoginTextFieldView.swift */; };
+		73B6A32D28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A32C28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,17 +35,14 @@
 /* Begin PBXFileReference section */
 		73B6A2F428EF6F1C00D9DCB6 /* FlashHR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashHR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		73B6A2F928EF6F1C00D9DCB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		73B6A2FB28EF6F1C00D9DCB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		73B6A2FE28EF6F1C00D9DCB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		73B6A2FB28EF6F1C00D9DCB6 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		73B6A30028EF6F1D00D9DCB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73B6A30328EF6F1D00D9DCB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73B6A30528EF6F1D00D9DCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73B6A30A28EF6F1D00D9DCB6 /* FlashHRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashHRTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		73B6A30E28EF6F1D00D9DCB6 /* FlashHRTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashHRTests.swift; sourceTree = "<group>"; };
 		73B6A31428EF6F1D00D9DCB6 /* FlashHRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashHRUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		73B6A31828EF6F1D00D9DCB6 /* FlashHRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashHRUITests.swift; sourceTree = "<group>"; };
-		73B6A31A28EF6F1D00D9DCB6 /* FlashHRUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashHRUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		73B6A32828EF6FB100D9DCB6 /* LoginTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldView.swift; sourceTree = "<group>"; };
+		73B6A32C28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldSecureToggle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				73B6A2F628EF6F1C00D9DCB6 /* FlashHR */,
-				73B6A30D28EF6F1D00D9DCB6 /* FlashHRTests */,
-				73B6A31728EF6F1D00D9DCB6 /* FlashHRUITests */,
 				73B6A2F528EF6F1C00D9DCB6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,32 +91,39 @@
 		73B6A2F628EF6F1C00D9DCB6 /* FlashHR */ = {
 			isa = PBXGroup;
 			children = (
+				73B6A32B28EF92FF00D9DCB6 /* Utils */,
+				73B6A32A28EF6FF300D9DCB6 /* Files */,
 				73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */,
-				73B6A2F928EF6F1C00D9DCB6 /* SceneDelegate.swift */,
-				73B6A2FB28EF6F1C00D9DCB6 /* ViewController.swift */,
-				73B6A2FD28EF6F1C00D9DCB6 /* Main.storyboard */,
-				73B6A30028EF6F1D00D9DCB6 /* Assets.xcassets */,
-				73B6A30228EF6F1D00D9DCB6 /* LaunchScreen.storyboard */,
-				73B6A30528EF6F1D00D9DCB6 /* Info.plist */,
+				73B6A32728EF6F7D00D9DCB6 /* LoginFlow */,
 			);
 			path = FlashHR;
 			sourceTree = "<group>";
 		};
-		73B6A30D28EF6F1D00D9DCB6 /* FlashHRTests */ = {
+		73B6A32728EF6F7D00D9DCB6 /* LoginFlow */ = {
 			isa = PBXGroup;
 			children = (
-				73B6A30E28EF6F1D00D9DCB6 /* FlashHRTests.swift */,
+				73B6A2FB28EF6F1C00D9DCB6 /* LoginVC.swift */,
+				73B6A32828EF6FB100D9DCB6 /* LoginTextFieldView.swift */,
 			);
-			path = FlashHRTests;
+			path = LoginFlow;
 			sourceTree = "<group>";
 		};
-		73B6A31728EF6F1D00D9DCB6 /* FlashHRUITests */ = {
+		73B6A32A28EF6FF300D9DCB6 /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				73B6A31828EF6F1D00D9DCB6 /* FlashHRUITests.swift */,
-				73B6A31A28EF6F1D00D9DCB6 /* FlashHRUITestsLaunchTests.swift */,
+				73B6A30028EF6F1D00D9DCB6 /* Assets.xcassets */,
+				73B6A30228EF6F1D00D9DCB6 /* LaunchScreen.storyboard */,
+				73B6A30528EF6F1D00D9DCB6 /* Info.plist */,
 			);
-			path = FlashHRUITests;
+			path = Files;
+			sourceTree = "<group>";
+		};
+		73B6A32B28EF92FF00D9DCB6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				73B6A32C28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +232,6 @@
 			files = (
 				73B6A30428EF6F1D00D9DCB6 /* LaunchScreen.storyboard in Resources */,
 				73B6A30128EF6F1D00D9DCB6 /* Assets.xcassets in Resources */,
-				73B6A2FF28EF6F1C00D9DCB6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +256,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73B6A2FC28EF6F1C00D9DCB6 /* ViewController.swift in Sources */,
+				73B6A32D28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift in Sources */,
+				73B6A32928EF6FB100D9DCB6 /* LoginTextFieldView.swift in Sources */,
+				73B6A2FC28EF6F1C00D9DCB6 /* LoginVC.swift in Sources */,
 				73B6A2F828EF6F1C00D9DCB6 /* AppDelegate.swift in Sources */,
-				73B6A2FA28EF6F1C00D9DCB6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +267,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73B6A30F28EF6F1D00D9DCB6 /* FlashHRTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +274,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73B6A31928EF6F1D00D9DCB6 /* FlashHRUITests.swift in Sources */,
-				73B6A31B28EF6F1D00D9DCB6 /* FlashHRUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		73B6A2FD28EF6F1C00D9DCB6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				73B6A2FE28EF6F1C00D9DCB6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		73B6A30228EF6F1D00D9DCB6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +430,6 @@
 				INFOPLIST_FILE = FlashHR/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,7 +437,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mahameed.FlashHR.FlashHR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mahameed.FlashHR2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -470,7 +457,6 @@
 				INFOPLIST_FILE = FlashHR/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -478,7 +464,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Mahameed.FlashHR.FlashHR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mahameed.FlashHR2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
