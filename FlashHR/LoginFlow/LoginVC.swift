@@ -100,12 +100,13 @@ extension LoginVC {
         logoText.text = "FlashHR"
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.text = "FlashHR is the perfect solution for all HR Duties"
+        descriptionLabel.text = "HR work made simple"
         descriptionLabel.textColor = .secondaryLabel
         descriptionLabel.font = UIFont.preferredFont(forTextStyle: .title2)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .center
         descriptionLabel.alpha = 0
+//        slogan "FlashHR is the perfect solution for all HR Duties"
         
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
         errorLabel.textAlignment = .center
