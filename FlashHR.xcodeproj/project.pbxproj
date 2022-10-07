@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73ADFB3D28F0A628007D1D59 /* PasswordReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ADFB3C28F0A628007D1D59 /* PasswordReset.swift */; };
 		73B6A2F828EF6F1C00D9DCB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */; };
 		73B6A2FC28EF6F1C00D9DCB6 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A2FB28EF6F1C00D9DCB6 /* LoginVC.swift */; };
 		73B6A30128EF6F1D00D9DCB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73B6A30028EF6F1D00D9DCB6 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		73ADFB3C28F0A628007D1D59 /* PasswordReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReset.swift; sourceTree = "<group>"; };
 		73B6A2F428EF6F1C00D9DCB6 /* FlashHR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashHR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73B6A2FB28EF6F1C00D9DCB6 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73ADFB3B28F0A60B007D1D59 /* PasswordReset */ = {
+			isa = PBXGroup;
+			children = (
+				73ADFB3C28F0A628007D1D59 /* PasswordReset.swift */,
+			);
+			name = PasswordReset;
+			sourceTree = "<group>";
+		};
 		73B6A2EB28EF6F1C00D9DCB6 = {
 			isa = PBXGroup;
 			children = (
@@ -91,9 +101,9 @@
 		73B6A2F628EF6F1C00D9DCB6 /* FlashHR */ = {
 			isa = PBXGroup;
 			children = (
+				73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */,
 				73B6A32B28EF92FF00D9DCB6 /* Utils */,
 				73B6A32A28EF6FF300D9DCB6 /* Files */,
-				73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */,
 				73B6A32728EF6F7D00D9DCB6 /* LoginFlow */,
 			);
 			path = FlashHR;
@@ -104,6 +114,7 @@
 			children = (
 				73B6A2FB28EF6F1C00D9DCB6 /* LoginVC.swift */,
 				73B6A32828EF6FB100D9DCB6 /* LoginTextFieldView.swift */,
+				73ADFB3B28F0A60B007D1D59 /* PasswordReset */,
 			);
 			path = LoginFlow;
 			sourceTree = "<group>";
@@ -257,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73B6A32D28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift in Sources */,
+				73ADFB3D28F0A628007D1D59 /* PasswordReset.swift in Sources */,
 				73B6A32928EF6FB100D9DCB6 /* LoginTextFieldView.swift in Sources */,
 				73B6A2FC28EF6F1C00D9DCB6 /* LoginVC.swift in Sources */,
 				73B6A2F828EF6F1C00D9DCB6 /* AppDelegate.swift in Sources */,

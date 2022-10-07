@@ -52,17 +52,22 @@ extension LoginTextFieldView {
         typeLabel.textColor = .label
         
         divider.translatesAutoresizingMaskIntoConstraints = false
-        divider.backgroundColor = .secondarySystemFill
+        divider.backgroundColor = .separator
         
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .none
         textField.placeholder = textFieldType
         textField.keyboardType = .emailAddress
+        textField.text = "Mahameed"
+        textField.placeholder = "name@domain.com"
+        textField.delegate = self
         
         if !isEmailTextfield{
             textField.isSecureTextEntry = true
             textField.enableSecureToggle()
             textField.keyboardType = .namePhonePad
+            textField.text = "mahameed"
+            textField.placeholder = "A@123Bc"
         }
         
         
@@ -88,3 +93,10 @@ extension LoginTextFieldView {
     }
 }
 
+extension LoginTextFieldView: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+}

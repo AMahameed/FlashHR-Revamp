@@ -8,10 +8,11 @@
 import UIKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
     let loginVC = LoginVC()
+    let passReset = PasswordReset()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -19,11 +20,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         
+        loginVC.delegate = self
+        passReset.delegate = self
+        
         displayLogin()
         
         return true
     }
+
+}
+
+extension AppDelegate: ResetPasswordDidPressed, didFinishPasswordReset {
+    
     private func displayLogin() {
+        setRootViewController(loginVC)
+    }
+    
+    func didPressResetPassword() {
+        setRootViewController(passReset)
+    }
+    
+    func backOrSubmitPressed() {
         setRootViewController(loginVC)
     }
 }
