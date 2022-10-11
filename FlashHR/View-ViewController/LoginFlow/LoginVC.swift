@@ -5,16 +5,13 @@
 //  Created by Abdallah Mahameed on 06/10/2022.
 //
 
-protocol ResetPasswordDidPressed: AnyObject {
-    func didPressResetPassword()
-}
-
 import UIKit
 
 class LoginVC: UIViewController {
     
     let stackView = UIStackView()
     let headerStackView = UIStackView()
+    let passReset = PasswordReset()
     
     let emailTextField = LoginTextFieldView(textFieldType: "Email", isEmailTextfield: true)
     let passwordTextField = LoginTextFieldView(textFieldType: "Password",isEmailTextfield: false)
@@ -34,8 +31,6 @@ class LoginVC: UIViewController {
     var passTextfieldEntry: String?{
         return passwordTextField.textField.text
     }
-    
-    weak var delegate: ResetPasswordDidPressed?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,12 +55,14 @@ class LoginVC: UIViewController {
     }
     
     @objc func resetPassPressed(_ sender: UIButton){
-        delegate?.didPressResetPassword()
+        self.present(passReset, animated: true)
     }
 }
 
 extension LoginVC {
     func style() {
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -73,7 +70,7 @@ extension LoginVC {
         
         headerStackView.translatesAutoresizingMaskIntoConstraints = false
         headerStackView.axis = .horizontal
-        headerStackView.alpha = 0
+        headerStackView.alpha = 0 // for animation purposes
         
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -88,7 +85,6 @@ extension LoginVC {
         passResetButton.translatesAutoresizingMaskIntoConstraints = false
         passResetButton.tintColor = .secondaryLabel
         passResetButton.setTitle("Forgot password? ", for: [])
-//        passResetButton.title
         passResetButton.addTarget(self, action: #selector(resetPassPressed), for: .primaryActionTriggered)
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
@@ -104,9 +100,8 @@ extension LoginVC {
         descriptionLabel.textColor = .secondaryLabel
         descriptionLabel.font = UIFont.preferredFont(forTextStyle: .title2)
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.alpha = 0 // for animation purposes
         descriptionLabel.textAlignment = .center
-        descriptionLabel.alpha = 0
-//        slogan "FlashHR is the perfect solution for all HR Duties"
         
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
         errorLabel.textAlignment = .center
@@ -185,7 +180,6 @@ extension LoginVC {
             passResetButton.topAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1),
             passResetButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor)
         ])
-        
     }
 }
 

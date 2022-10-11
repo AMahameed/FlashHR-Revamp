@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73AA37BF28F61BEF0077C397 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA37BE28F61BEF0077C397 /* LocalState.swift */; };
+		73AA37C128F61E570077C397 /* AutoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA37C028F61E570077C397 /* AutoLogin.swift */; };
+		73AA37C328F61FED0077C397 /* UserDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA37C228F61FED0077C397 /* UserDataServices.swift */; };
+		73AA37C528F620360077C397 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA37C428F620360077C397 /* Constants.swift */; };
 		73ADFB3D28F0A628007D1D59 /* PasswordReset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73ADFB3C28F0A628007D1D59 /* PasswordReset.swift */; };
 		73B6A2F828EF6F1C00D9DCB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */; };
 		73B6A2FC28EF6F1C00D9DCB6 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A2FB28EF6F1C00D9DCB6 /* LoginVC.swift */; };
@@ -14,6 +18,8 @@
 		73B6A30428EF6F1D00D9DCB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B6A30228EF6F1D00D9DCB6 /* LaunchScreen.storyboard */; };
 		73B6A32928EF6FB100D9DCB6 /* LoginTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A32828EF6FB100D9DCB6 /* LoginTextFieldView.swift */; };
 		73B6A32D28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A32C28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift */; };
+		73B8825428F5EDBB00CA51DF /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B8825328F5EDBB00CA51DF /* OnboardingVC.swift */; };
+		73B8825628F5EDE800CA51DF /* OnboardingContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B8825528F5EDE800CA51DF /* OnboardingContainerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		73AA37BE28F61BEF0077C397 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
+		73AA37C028F61E570077C397 /* AutoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLogin.swift; sourceTree = "<group>"; };
+		73AA37C228F61FED0077C397 /* UserDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataServices.swift; sourceTree = "<group>"; };
+		73AA37C428F620360077C397 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		73ADFB3C28F0A628007D1D59 /* PasswordReset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordReset.swift; sourceTree = "<group>"; };
 		73B6A2F428EF6F1C00D9DCB6 /* FlashHR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashHR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +55,8 @@
 		73B6A31428EF6F1D00D9DCB6 /* FlashHRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashHRUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B6A32828EF6FB100D9DCB6 /* LoginTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldView.swift; sourceTree = "<group>"; };
 		73B6A32C28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldSecureToggle.swift; sourceTree = "<group>"; };
+		73B8825328F5EDBB00CA51DF /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		73B8825528F5EDE800CA51DF /* OnboardingContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */,
+				73E07F7128F20D01000547EB /* View-ViewController */,
 				73B6A32B28EF92FF00D9DCB6 /* Utils */,
 				73B6A32A28EF6FF300D9DCB6 /* Files */,
-				73B6A32728EF6F7D00D9DCB6 /* LoginFlow */,
 			);
 			path = FlashHR;
 			sourceTree = "<group>";
@@ -112,9 +124,10 @@
 		73B6A32728EF6F7D00D9DCB6 /* LoginFlow */ = {
 			isa = PBXGroup;
 			children = (
-				73B6A2FB28EF6F1C00D9DCB6 /* LoginVC.swift */,
-				73B6A32828EF6FB100D9DCB6 /* LoginTextFieldView.swift */,
+				73FC0B5F28F1C4AC00EAE207 /* AutoLogin */,
+				73FC0B5E28F1C49800EAE207 /* Login */,
 				73ADFB3B28F0A60B007D1D59 /* PasswordReset */,
+				73B8825228F5ED9B00CA51DF /* Onboarding */,
 			);
 			path = LoginFlow;
 			sourceTree = "<group>";
@@ -133,8 +146,61 @@
 			isa = PBXGroup;
 			children = (
 				73B6A32C28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift */,
+				73AA37C228F61FED0077C397 /* UserDataServices.swift */,
+				73AA37BE28F61BEF0077C397 /* LocalState.swift */,
+				73AA37C428F620360077C397 /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		73B8825228F5ED9B00CA51DF /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				73B8825328F5EDBB00CA51DF /* OnboardingVC.swift */,
+				73B8825528F5EDE800CA51DF /* OnboardingContainerVC.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		73E07F7128F20D01000547EB /* View-ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				73B6A32728EF6F7D00D9DCB6 /* LoginFlow */,
+				73FC0B6028F1C57C00EAE207 /* EmployerFlow */,
+				73E07F7228F20D1C000547EB /* EmployeeFlow */,
+			);
+			path = "View-ViewController";
+			sourceTree = "<group>";
+		};
+		73E07F7228F20D1C000547EB /* EmployeeFlow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EmployeeFlow;
+			sourceTree = "<group>";
+		};
+		73FC0B5E28F1C49800EAE207 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				73B6A2FB28EF6F1C00D9DCB6 /* LoginVC.swift */,
+				73B6A32828EF6FB100D9DCB6 /* LoginTextFieldView.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		73FC0B5F28F1C4AC00EAE207 /* AutoLogin */ = {
+			isa = PBXGroup;
+			children = (
+				73AA37C028F61E570077C397 /* AutoLogin.swift */,
+			);
+			name = AutoLogin;
+			sourceTree = "<group>";
+		};
+		73FC0B6028F1C57C00EAE207 /* EmployerFlow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EmployerFlow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,10 +334,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				73B6A32D28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift in Sources */,
+				73AA37C528F620360077C397 /* Constants.swift in Sources */,
+				73B8825428F5EDBB00CA51DF /* OnboardingVC.swift in Sources */,
 				73ADFB3D28F0A628007D1D59 /* PasswordReset.swift in Sources */,
 				73B6A32928EF6FB100D9DCB6 /* LoginTextFieldView.swift in Sources */,
+				73AA37C328F61FED0077C397 /* UserDataServices.swift in Sources */,
 				73B6A2FC28EF6F1C00D9DCB6 /* LoginVC.swift in Sources */,
 				73B6A2F828EF6F1C00D9DCB6 /* AppDelegate.swift in Sources */,
+				73B8825628F5EDE800CA51DF /* OnboardingContainerVC.swift in Sources */,
+				73AA37C128F61E570077C397 /* AutoLogin.swift in Sources */,
+				73AA37BF28F61BEF0077C397 /* LocalState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

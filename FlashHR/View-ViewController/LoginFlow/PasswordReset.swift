@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol didFinishPasswordReset: AnyObject {
-    func backOrSubmitPressed()
-}
-
 class PasswordReset: UIViewController {
     
     let stackView = UIStackView()
@@ -20,8 +16,6 @@ class PasswordReset: UIViewController {
     let submitButton = UIButton(type: .system)
     let backButton = UIButton(type: .close)
     
-    weak var delegate: didFinishPasswordReset?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
@@ -29,16 +23,19 @@ class PasswordReset: UIViewController {
     }
     
     @objc func submitPressed(_ sender: UIButton){
-        delegate?.backOrSubmitPressed()
+        self.dismiss(animated: true)
     }
     
     @objc func backPressed(_ sender: UIButton){
-        delegate?.backOrSubmitPressed()
+        self.dismiss(animated: true)
     }
 }
 
 extension PasswordReset {
     func style() {
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemBackground
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical

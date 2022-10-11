@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     var window: UIWindow?
     let loginVC = LoginVC()
     let passReset = PasswordReset()
+    let ob = OnboardingVC()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -20,27 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         
-        loginVC.delegate = self
-        passReset.delegate = self
-        
-        displayLogin()
-        
+//        displayLogin()
+        setRootViewController(ob)
         return true
     }
 
 }
 
-extension AppDelegate: ResetPasswordDidPressed, didFinishPasswordReset {
+extension AppDelegate{
     
     private func displayLogin() {
-        setRootViewController(loginVC)
-    }
-    
-    func didPressResetPassword() {
-        setRootViewController(passReset)
-    }
-    
-    func backOrSubmitPressed() {
         setRootViewController(loginVC)
     }
 }
