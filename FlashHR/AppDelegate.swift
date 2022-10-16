@@ -12,17 +12,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
     let loginVC = LoginVC()
-    let passReset = PasswordReset()
-    let ob = OnboardingVC()
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         
-//        displayLogin()
-        setRootViewController(ob)
+        displayLogin()
         return true
     }
 
@@ -33,7 +30,9 @@ extension AppDelegate{
     private func displayLogin() {
         setRootViewController(loginVC)
     }
+    
 }
+
 
 extension AppDelegate{
     

@@ -1,23 +1,28 @@
 //
-//  ViewController.swift
+//  LoginView.swift
 //  FlashHR
 //
-//  Created by Abdallah Mahameed on 06/10/2022.
+//  Created by Abdallah Mahameed on 14/10/2022.
 //
+
+protocol ButtonsPressed: AnyObject {
+    func didPressloginBtn(button: UIButton)
+    func didPressPassResetBtn(button: UIButton)
+}
 
 import UIKit
 
-class LoginVC: UIViewController {
+class LoginView: UIView {
     
-    let stackView = UIStackView()
     let headerStackView = UIStackView()
     let passReset = PasswordReset()
-    
-    let emailTextField = LoginTextFieldView(textFieldType: "Email", isEmailTextfield: true)
-    let passwordTextField = LoginTextFieldView(textFieldType: "Password",isEmailTextfield: false)
+    let loginTextFieldView = LoginTextFieldView()
     
     let loginButton = UIButton(type: .system)
+    var loginBtnHander:(() -> ())? = nil
+    
     let passResetButton = UIButton(type: .system)
+    var passResetBtnHander:(() -> ())? = nil
     
     let logoImage = UIImageView(image: UIImage(named: "logo"))
     let logoText = UILabel()
@@ -26,54 +31,57 @@ class LoginVC: UIViewController {
     let errorLabel = UILabel()
     
     var emailTextfieldEntry: String?{
-        return emailTextField.textField.text
+        return  loginTextFieldView.usernameTextfield.text
     }
     var passTextfieldEntry: String?{
-        return passwordTextField.textField.text
-    }
+        return loginTextFieldView.passwordTextfield.text}
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    weak var delegate: ButtonsPressed?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
         style()
         layout()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         animate()
         errorLabel.isHidden = true
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     @objc func loginPressed(_ sender: UIButton){
         
-        if emailTextfieldEntry != "Mahameed" || passTextfieldEntry != "mahameed"{
+        if emailTextfieldEntry?.isEmpty == false || passTextfieldEntry?.isEmpty == false {
             errorLabel.isHidden = false
             shakeButton()
         }else{
             errorLabel.isHidden = true
+
+                if LocalState.hasOnboarded{
+                    delegate?.didPressloginBtn(button: loginButton)
+                }else{
+                    // do
+                }
         }
     }
     
     @objc func resetPassPressed(_ sender: UIButton){
-        self.present(passReset, animated: true)
+        delegate?.didPressPassResetBtn(button: passResetButton)
     }
+
 }
 
-extension LoginVC {
+extension LoginView {
     func style() {
+        backgroundColor = .systemBackground
         
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 8
+        loginTextFieldView.translatesAutoresizingMaskIntoConstraints = false
         
         headerStackView.translatesAutoresizingMaskIntoConstraints = false
         headerStackView.axis = .horizontal
         headerStackView.alpha = 0 // for animation purposes
-        
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.configuration = .filled()
@@ -110,40 +118,34 @@ extension LoginVC {
         errorLabel.numberOfLines = 0
         errorLabel.textColor = .systemRed
         errorLabel.isHidden = true
-
     }
 
     func layout() {
         
-        stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(passwordTextField)
-        
         headerStackView.addSubview(logoImage)
         headerStackView.addSubview(logoText)
         
-        view.addSubview(headerStackView)
-        view.addSubview(descriptionLabel)
-        view.addSubview(stackView)
-        view.addSubview(passResetButton)
-        view.addSubview(loginButton)
-        view.addSubview(errorLabel)
-        
-        
+        addSubview(headerStackView)
+        addSubview(descriptionLabel)
+        addSubview(loginTextFieldView)
+        addSubview(passResetButton)
+        addSubview(loginButton)
+        addSubview(errorLabel)
         
         //        textfield StackView
         NSLayoutConstraint.activate([
             
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 4),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 4)
+            loginTextFieldView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            loginTextFieldView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 4),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: loginTextFieldView.trailingAnchor, multiplier: 4)
         ])
         
         //        login Button
         NSLayoutConstraint.activate([
             
             loginButton.topAnchor.constraint(equalToSystemSpacingBelow: passResetButton.bottomAnchor, multiplier: 8),
-            loginButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 4),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginButton.trailingAnchor, multiplier: 4)
+            loginButton.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 4),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: loginButton.trailingAnchor, multiplier: 4)
         ])
         
         //        headerStackView
@@ -155,16 +157,16 @@ extension LoginVC {
             logoImage.centerYAnchor.constraint(equalTo: logoText.centerYAnchor),
             
             headerStackView.widthAnchor.constraint(equalToConstant: 230),
-            headerStackView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 8),
-            headerStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            headerStackView.topAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.topAnchor, multiplier: 8),
+            headerStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
         //        descriptionLabel
         NSLayoutConstraint.activate([
             
             descriptionLabel.topAnchor.constraint(equalToSystemSpacingBelow: headerStackView.bottomAnchor, multiplier: 10),
-            descriptionLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 4),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: descriptionLabel.trailingAnchor, multiplier: 4)
+            descriptionLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 4),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: descriptionLabel.trailingAnchor, multiplier: 4)
         ])
         
         //       Error Label
@@ -177,34 +179,34 @@ extension LoginVC {
         //        passResetButton
         NSLayoutConstraint.activate([
             
-            passResetButton.topAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1),
-            passResetButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor)
+            passResetButton.topAnchor.constraint(equalToSystemSpacingBelow: loginTextFieldView.bottomAnchor, multiplier: 1),
+            passResetButton.leadingAnchor.constraint(equalTo: loginTextFieldView.leadingAnchor)
         ])
     }
 }
 
 // MARK: - Animations
-extension LoginVC {
+extension LoginView {
     private func animate() {
-        
+
         let duration = 1.0
-        
+
         let animator = UIViewPropertyAnimator(duration: duration*1.5, curve: .easeInOut) {
             self.headerStackView.alpha = 1
             self.descriptionLabel.alpha = 1
         }
-        
+
         animator.startAnimation()
     }
-    
+
     private func shakeButton() {
         let animation = CAKeyframeAnimation()
         animation.keyPath = "position.x"
         animation.values = [0, 10, -10, 10, 0]
         animation.keyTimes = [0, 0.16, 0.5, 0.83, 1]
         animation.duration = 0.3
-        
+
         animation.isAdditive = true
-        loginButton.layer.add(animation, forKey: "shake")
+            loginButton.layer.add(animation, forKey: "shake")
     }
 }

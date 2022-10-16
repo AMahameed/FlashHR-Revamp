@@ -9,26 +9,26 @@ import UIKit
 
 class OnboardingVC: UIViewController {
     
-    let pageVC: UIPageViewController
+    var pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     let closeButton = UIButton(type: .system)
     
     var pages = [UIViewController]()
     var currentVC: UIViewController
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        
+
         self.pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        
+
         let page1 = OnboardingContainerVC(onboardingImageName: "fast", onboardingText: "Scheduling shifts and Scouting colleagues profiles at a glance.")
-        let page2 = OnboardingContainerVC(onboardingImageName: "message", onboardingText: "Broadcast messages to all or certain Department employees has never been smoother.")
+        let page2 = OnboardingContainerVC(onboardingImageName: "message", onboardingText: "Broadcast messages to all employees or certain departments has never been easier.")
         let page3 = OnboardingContainerVC(onboardingImageName: "report", onboardingText: "Monitor employees working-hours and many more with a click of a button.")
 
         pages.append(page1)
         pages.append(page2)
         pages.append(page3)
-        
+
         currentVC = pages.first!
-        
+
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -44,6 +44,11 @@ class OnboardingVC: UIViewController {
     }
     
     @objc func closeTapped(_ sender: UIButton) {
+        LocalState.hasOnboarded = true
+        let vc = LoginVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+        
     }
 }
 
@@ -71,11 +76,10 @@ extension OnboardingVC {
     }
     
     func style() {
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .systemBackground
         
         closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.setTitle("Skip", for: [])
+        closeButton.setTitle("Close", for: [])
         closeButton.tintColor = UIColor(named: "blue")
         closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
     }

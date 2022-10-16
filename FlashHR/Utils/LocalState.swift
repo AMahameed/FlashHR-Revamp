@@ -14,14 +14,13 @@ struct LocalState {
         case userID
     }
     
-    public static var hasOnboarded: Bool{
-        
+   static var hasOnboarded: Bool{
         get{return UserDefaults.standard.bool(forKey: Keys.hasOnboarded.rawValue)}
-        set(newValue){UserDefaults.standard.set(newValue, forKey: Keys.hasOnboarded.rawValue)}
-//            UserDefaults.standard.synchronize()}
+        set(newValue){UserDefaults.standard.set(newValue, forKey: Keys.hasOnboarded.rawValue)
+            UserDefaults.standard.synchronize()}
     }
     
-    public static var userID: String?{
+   static var userID: String?{
         get{return UserDefaults.standard.string(forKey: Keys.userID.rawValue)}
         set (newValue) {UserDefaults.standard.set(newValue, forKey: Keys.userID.rawValue)}
     }

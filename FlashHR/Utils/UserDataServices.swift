@@ -8,9 +8,9 @@
 import Foundation
 
 class UserDataServices{
-    
+
     static let shared = UserDataServices()
-    
+
     var isSupport1: Bool{
         return LocalState.userID == Constans.Support.support1
     }

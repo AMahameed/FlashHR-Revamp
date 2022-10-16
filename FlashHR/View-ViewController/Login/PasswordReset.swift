@@ -10,9 +10,12 @@ import UIKit
 class PasswordReset: UIViewController {
     
     let stackView = UIStackView()
+    let textFieldStackView = UIStackView()
     
     let descriptionLabel = UILabel()
-    let emailTextfield = LoginTextFieldView(textFieldType: "Email", isEmailTextfield: true)
+    let usernameTextfield = UITextField()
+    let userTypeLabel = UILabel()
+    let divider = UIView()
     let submitButton = UIButton(type: .system)
     let backButton = UIButton(type: .close)
     
@@ -33,14 +36,17 @@ class PasswordReset: UIViewController {
 
 extension PasswordReset {
     func style() {
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .systemBackground
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.spacing = 40
+        
+        textFieldStackView.translatesAutoresizingMaskIntoConstraints = false
+        textFieldStackView.axis = .vertical
+        textFieldStackView.distribution = .fill
+        textFieldStackView.spacing = 8
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.text = "To reset your Password, please type your registered email. Thereafter, you will recieve an email to reset your password."
@@ -50,7 +56,19 @@ extension PasswordReset {
         descriptionLabel.textAlignment = .left
         descriptionLabel.adjustsFontSizeToFitWidth = true
         
-        emailTextfield.translatesAutoresizingMaskIntoConstraints = false
+        userTypeLabel.translatesAutoresizingMaskIntoConstraints = false
+        userTypeLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        userTypeLabel.text = "Email"
+        userTypeLabel.textColor = .label
+        
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.backgroundColor = .separator
+        
+        usernameTextfield.translatesAutoresizingMaskIntoConstraints = false
+        usernameTextfield.borderStyle = .none
+        usernameTextfield.keyboardType = .emailAddress
+        usernameTextfield.placeholder = "name@domain.com"
+        usernameTextfield.delegate = self
         
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         submitButton.configuration = .filled()
@@ -59,16 +77,18 @@ extension PasswordReset {
         submitButton.addTarget(self, action: #selector(submitPressed), for: .primaryActionTriggered)
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
-//        backButton.configuration = .filled()
         backButton.tintColor = UIColor(named: "blue")
-//        backButton.setTitle("Back", for: [])
         backButton.addTarget(self, action: #selector(backPressed), for: .primaryActionTriggered)
     }
     
     func layout() {
         
+        textFieldStackView.addArrangedSubview(userTypeLabel)
+        textFieldStackView.addArrangedSubview(usernameTextfield)
+        textFieldStackView.addArrangedSubview(divider)
+        
         stackView.addArrangedSubview(descriptionLabel)
-        stackView.addArrangedSubview(emailTextfield)
+        stackView.addArrangedSubview(textFieldStackView)
         
         view.addSubview(backButton)
         view.addSubview(stackView)
@@ -86,9 +106,9 @@ extension PasswordReset {
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
             stackView.leadingAnchor.constraint(equalTo: submitButton.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: submitButton.trailingAnchor),
-            
         ])
         
+        divider.heightAnchor.constraint(equalToConstant: 1).isActive = true
 //       submitButton
         NSLayoutConstraint.activate([
         
@@ -96,5 +116,17 @@ extension PasswordReset {
             submitButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 4),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: submitButton.trailingAnchor, multiplier: 4)
         ])
+    }
+}
+
+extension PasswordReset: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        return true
     }
 }
