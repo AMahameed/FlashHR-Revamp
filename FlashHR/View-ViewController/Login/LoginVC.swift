@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginVC.swift
 //  FlashHR
 //
 //  Created by Abdallah Mahameed on 06/10/2022.
@@ -14,9 +14,9 @@ class LoginVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        style()
-        layout()
+        
         loginView.delegate = self
+        view.backgroundColor = .systemBackground
     }
     
     override func loadView() {
@@ -25,16 +25,9 @@ class LoginVC: UIViewController{
     }
 }
 
-extension LoginVC {
-    func style() {
-        view.backgroundColor = .systemBackground
-    }
-    
-    func layout() {
-    }
-}
+//MARK: Login and Reset Password buttons Delegates
 
-extension LoginVC: ButtonsPressed{
+extension LoginVC: LoginButtonsPressed{
     
     func didPressloginBtn(button: UIButton) {
         let vc = OnboardingVC()

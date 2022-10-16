@@ -21,6 +21,7 @@
 		73B6A32D28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A32C28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift */; };
 		73B8825428F5EDBB00CA51DF /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B8825328F5EDBB00CA51DF /* OnboardingVC.swift */; };
 		73B8825628F5EDE800CA51DF /* OnboardingContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B8825528F5EDE800CA51DF /* OnboardingContainerVC.swift */; };
+		73D86E6128FC906C007B9B2A /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D86E6028FC906C007B9B2A /* PasswordResetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		73B6A32C28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldSecureToggle.swift; sourceTree = "<group>"; };
 		73B8825328F5EDBB00CA51DF /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		73B8825528F5EDE800CA51DF /* OnboardingContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerVC.swift; sourceTree = "<group>"; };
+		73D86E6028FC906C007B9B2A /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				73ADFB3C28F0A628007D1D59 /* PasswordReset.swift */,
+				73D86E6028FC906C007B9B2A /* PasswordResetView.swift */,
 			);
 			name = PasswordReset;
 			sourceTree = "<group>";
@@ -116,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				73B6A2F728EF6F1C00D9DCB6 /* AppDelegate.swift */,
+				73D86E6228FC93D6007B9B2A /* Models */,
 				73E07F7128F20D01000547EB /* View-ViewController */,
 				73B6A32B28EF92FF00D9DCB6 /* Utils */,
 				73B6A32A28EF6FF300D9DCB6 /* Files */,
@@ -171,6 +175,13 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		73D86E6228FC93D6007B9B2A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		73E07F7128F20D01000547EB /* View-ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,9 +203,9 @@
 		73FC0B5E28F1C49800EAE207 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				73B6A32828EF6FB100D9DCB6 /* LoginTextFieldView.swift */,
 				73B6A2FB28EF6F1C00D9DCB6 /* LoginVC.swift */,
 				73AB6B0428F9B6480003AFB1 /* LoginView.swift */,
+				73B6A32828EF6FB100D9DCB6 /* LoginTextFieldView.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -345,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73B6A32D28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift in Sources */,
+				73D86E6128FC906C007B9B2A /* PasswordResetView.swift in Sources */,
 				73AA37C528F620360077C397 /* Constants.swift in Sources */,
 				73B8825428F5EDBB00CA51DF /* OnboardingVC.swift in Sources */,
 				73ADFB3D28F0A628007D1D59 /* PasswordReset.swift in Sources */,

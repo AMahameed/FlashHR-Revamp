@@ -68,7 +68,7 @@ extension LoginTextFieldView {
         passwordTextfield.isSecureTextEntry = true
         passwordTextfield.enableSecureToggle()
         passwordTextfield.keyboardType = .namePhonePad
-        passwordTextfield.placeholder = "A*123c"
+        passwordTextfield.placeholder = "A123c"
         passwordTextfield.delegate = self
         
         

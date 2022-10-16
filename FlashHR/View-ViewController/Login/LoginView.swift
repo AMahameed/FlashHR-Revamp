@@ -5,7 +5,7 @@
 //  Created by Abdallah Mahameed on 14/10/2022.
 //
 
-protocol ButtonsPressed: AnyObject {
+protocol LoginButtonsPressed: AnyObject {
     func didPressloginBtn(button: UIButton)
     func didPressPassResetBtn(button: UIButton)
 }
@@ -19,10 +19,8 @@ class LoginView: UIView {
     let loginTextFieldView = LoginTextFieldView()
     
     let loginButton = UIButton(type: .system)
-    var loginBtnHander:(() -> ())? = nil
     
     let passResetButton = UIButton(type: .system)
-    var passResetBtnHander:(() -> ())? = nil
     
     let logoImage = UIImageView(image: UIImage(named: "logo"))
     let logoText = UILabel()
@@ -36,7 +34,7 @@ class LoginView: UIView {
     var passTextfieldEntry: String?{
         return loginTextFieldView.passwordTextfield.text}
     
-    weak var delegate: ButtonsPressed?
+    weak var delegate: LoginButtonsPressed?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,7 +66,7 @@ class LoginView: UIView {
     }
     
     @objc func resetPassPressed(_ sender: UIButton){
-        delegate?.didPressPassResetBtn(button: passResetButton)
+        delegate?.didPressPassResetBtn(button: sender)
     }
 
 }
