@@ -28,14 +28,15 @@ class LoginVC: UIViewController{
 //MARK: Login and Reset Password buttons Delegates
 
 extension LoginVC: LoginButtonsPressed{
+    func didPressloginBtnToOnboading(button: UIButton) {
+        present(loginView.onboardingvVC, animated: true)
+    }
     
-    func didPressloginBtn(button: UIButton) {
-        let vc = OnboardingVC()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+    func didPressloginBtnToCompanySelection(button: UIButton) {
+        present(loginView.comSelNC, animated: true)
     }
     
     func didPressPassResetBtn(button: UIButton) {
-        self.present(loginView.passReset, animated: true)
+        present(loginView.passReset, animated: true)
     }
 }

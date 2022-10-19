@@ -6,7 +6,8 @@
 //
 
 protocol LoginButtonsPressed: AnyObject {
-    func didPressloginBtn(button: UIButton)
+    func didPressloginBtnToOnboading(button: UIButton)
+    func didPressloginBtnToCompanySelection(button: UIButton)
     func didPressPassResetBtn(button: UIButton)
 }
 
@@ -16,7 +17,11 @@ class LoginView: UIView {
     
     let headerStackView = UIStackView()
     let passReset = PasswordReset()
+    let onboardingvVC = OnboardingVC()
     let loginTextFieldView = LoginTextFieldView()
+    let comSelectionVC = CompanySelection()
+    
+    var comSelNC: UINavigationController!
     
     let loginButton = UIButton(type: .system)
     
@@ -57,10 +62,13 @@ class LoginView: UIView {
         }else{
             errorLabel.isHidden = true
 
-                if LocalState.hasOnboarded{
-                    delegate?.didPressloginBtn(button: loginButton)
+                if !LocalState.hasOnboarded{
+                    onboardingvVC.modalPresentationStyle = .fullScreen
+                    delegate?.didPressloginBtnToOnboading(button: loginButton)
                 }else{
-                    // do
+                    comSelNC = UINavigationController(rootViewController: comSelectionVC)
+                    comSelNC.modalPresentationStyle = .fullScreen
+                    delegate?.didPressloginBtnToCompanySelection(button: loginButton)
                 }
         }
     }

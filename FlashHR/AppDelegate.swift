@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
     let loginVC = LoginVC()
+    let DS = DepartmentSelection()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -19,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         
-        displayLogin()
+        setRootViewController(DS)
+        
+//        displayLogin()
         return true
     }
 
