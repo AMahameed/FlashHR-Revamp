@@ -15,23 +15,25 @@ class CompanySelection: UIViewController {
         super.viewDidLoad()
         
         comSelectionView.delegate = self
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
-        title = "Company Selection"
-//        navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "blue")
     }
+    
     override func loadView() {
         super.loadView()
         view = comSelectionView
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        title = "Company Selection"
     }
 }
 
 extension CompanySelection: nextPerssedInComSelection {
-    func nextDidPress() {
+    
+    func didPressNext() {
         navigationController?.pushViewController(comSelectionView.depVC, animated: true)
     }
 }
 
 extension CompanySelection: UIGestureRecognizerDelegate {
+    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }

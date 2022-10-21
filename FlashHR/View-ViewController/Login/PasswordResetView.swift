@@ -46,6 +46,7 @@ class PasswordResetView: UIView {
     }
 }
 
+//MARK: style and layout
 extension PasswordResetView {
     
     func style() {

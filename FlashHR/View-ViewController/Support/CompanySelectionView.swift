@@ -6,7 +6,7 @@
 //
 
 protocol nextPerssedInComSelection: AnyObject{
-    func nextDidPress()
+    func didPressNext()
 }
 
 import UIKit
@@ -38,11 +38,12 @@ class CompanySelectionView: UIView {
     
     @objc func nextPressed(_ sender: UIButton){
         depVC.modalPresentationStyle = .fullScreen
-        delegate?.nextDidPress()
+        delegate?.didPressNext()
         
     }
 }
 
+//MARK: style and layout
 extension CompanySelectionView {
     
     func style() {
@@ -62,15 +63,15 @@ extension CompanySelectionView {
         
         comNameTextfield.translatesAutoresizingMaskIntoConstraints = false
         comNameTextfield.borderStyle = .roundedRect
-        comNameTextfield.backgroundColor = .systemGroupedBackground
+        comNameTextfield.backgroundColor = .systemGray5
         comNameTextfield.placeholder = "Company Name   e.g. Apple Inc."
-        //        comNameTextfield.delegate = self
+        comNameTextfield.delegate = self
         
         comUIDTextfield.translatesAutoresizingMaskIntoConstraints = false
         comUIDTextfield.borderStyle = .roundedRect
-        comUIDTextfield.backgroundColor = .systemGroupedBackground
+        comUIDTextfield.backgroundColor = .systemGray5
         comUIDTextfield.placeholder = "Company UID   e.g. 23"
-        //        comUIDTextfield.delegate = self
+        comUIDTextfield.delegate = self
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.configuration = .filled()
@@ -96,5 +97,12 @@ extension CompanySelectionView {
             trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 6),
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+    }
+}
+
+extension CompanySelectionView: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       textField.endEditing(true)
     }
 }

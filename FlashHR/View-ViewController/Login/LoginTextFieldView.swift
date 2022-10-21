@@ -31,6 +31,7 @@ class LoginTextFieldView: UIView {
     }
 }
 
+//MARK: style and layout
 extension LoginTextFieldView {
     
     func style() {
@@ -103,7 +104,8 @@ extension LoginTextFieldView {
 extension LoginTextFieldView: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.endEditing(true)
+        usernameTextfield.endEditing(true)
+        passwordTextfield.endEditing(true)
         return true
     }
     

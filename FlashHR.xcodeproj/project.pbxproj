@@ -12,6 +12,8 @@
 		733EA52F28FE2EB000638E48 /* CompanySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733EA52E28FE2EB000638E48 /* CompanySelection.swift */; };
 		733EA53128FE2EDD00638E48 /* CompanySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733EA53028FE2EDD00638E48 /* CompanySelectionView.swift */; };
 		733EA53328FE362700638E48 /* UIFont+HelperServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733EA53228FE362700638E48 /* UIFont+HelperServices.swift */; };
+		734C2C5D29019FEB00572900 /* DepartmentSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734C2C5C29019FEB00572900 /* DepartmentSelectionCell.swift */; };
+		734C2C5F2901A5D800572900 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734C2C5E2901A5D800572900 /* Models.swift */; };
 		73AA37BF28F61BEF0077C397 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA37BE28F61BEF0077C397 /* LocalState.swift */; };
 		73AA37C128F61E570077C397 /* AutoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA37C028F61E570077C397 /* AutoLogin.swift */; };
 		73AA37C328F61FED0077C397 /* UserDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA37C228F61FED0077C397 /* UserDataServices.swift */; };
@@ -26,6 +28,7 @@
 		73B6A32D28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6A32C28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift */; };
 		73B8825428F5EDBB00CA51DF /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B8825328F5EDBB00CA51DF /* OnboardingVC.swift */; };
 		73B8825628F5EDE800CA51DF /* OnboardingContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B8825528F5EDE800CA51DF /* OnboardingContainerVC.swift */; };
+		73BFCF032901CADB00A88551 /* DepartmentSelectionBtnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFCF022901CADB00A88551 /* DepartmentSelectionBtnCell.swift */; };
 		73D86E6128FC906C007B9B2A /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D86E6028FC906C007B9B2A /* PasswordResetView.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,8 @@
 		733EA52E28FE2EB000638E48 /* CompanySelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanySelection.swift; sourceTree = "<group>"; };
 		733EA53028FE2EDD00638E48 /* CompanySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanySelectionView.swift; sourceTree = "<group>"; };
 		733EA53228FE362700638E48 /* UIFont+HelperServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+HelperServices.swift"; sourceTree = "<group>"; };
+		734C2C5C29019FEB00572900 /* DepartmentSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentSelectionCell.swift; sourceTree = "<group>"; };
+		734C2C5E2901A5D800572900 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		73AA37BE28F61BEF0077C397 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		73AA37C028F61E570077C397 /* AutoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLogin.swift; sourceTree = "<group>"; };
 		73AA37C228F61FED0077C397 /* UserDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataServices.swift; sourceTree = "<group>"; };
@@ -70,6 +75,7 @@
 		73B6A32C28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldSecureToggle.swift; sourceTree = "<group>"; };
 		73B8825328F5EDBB00CA51DF /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		73B8825528F5EDE800CA51DF /* OnboardingContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerVC.swift; sourceTree = "<group>"; };
+		73BFCF022901CADB00A88551 /* DepartmentSelectionBtnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentSelectionBtnCell.swift; sourceTree = "<group>"; };
 		73D86E6028FC906C007B9B2A /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		734C2C5B29019FD400572900 /* DepartmentSelectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				734C2C5C29019FEB00572900 /* DepartmentSelectionCell.swift */,
+				73BFCF022901CADB00A88551 /* DepartmentSelectionBtnCell.swift */,
+			);
+			path = DepartmentSelectionCells;
+			sourceTree = "<group>";
+		};
 		73ADFB3B28F0A60B007D1D59 /* PasswordReset */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +201,7 @@
 				733EA53028FE2EDD00638E48 /* CompanySelectionView.swift */,
 				7310388529003B01001B5024 /* DepartmentSelection.swift */,
 				7310388729003B1A001B5024 /* DepartmentSelectionView.swift */,
+				734C2C5B29019FD400572900 /* DepartmentSelectionCells */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -193,6 +209,7 @@
 		73D86E6228FC93D6007B9B2A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				734C2C5E2901A5D800572900 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -373,6 +390,7 @@
 				73B6A32D28EF932A00D9DCB6 /* UITextFieldSecureToggle.swift in Sources */,
 				7310388829003B1A001B5024 /* DepartmentSelectionView.swift in Sources */,
 				73D86E6128FC906C007B9B2A /* PasswordResetView.swift in Sources */,
+				73BFCF032901CADB00A88551 /* DepartmentSelectionBtnCell.swift in Sources */,
 				73AA37C528F620360077C397 /* Constants.swift in Sources */,
 				73B8825428F5EDBB00CA51DF /* OnboardingVC.swift in Sources */,
 				73ADFB3D28F0A628007D1D59 /* PasswordReset.swift in Sources */,
@@ -381,6 +399,7 @@
 				73AB6B0528F9B6480003AFB1 /* LoginView.swift in Sources */,
 				733EA53128FE2EDD00638E48 /* CompanySelectionView.swift in Sources */,
 				73B6A2FC28EF6F1C00D9DCB6 /* LoginVC.swift in Sources */,
+				734C2C5D29019FEB00572900 /* DepartmentSelectionCell.swift in Sources */,
 				73B6A2F828EF6F1C00D9DCB6 /* AppDelegate.swift in Sources */,
 				733EA52F28FE2EB000638E48 /* CompanySelection.swift in Sources */,
 				7310388629003B01001B5024 /* DepartmentSelection.swift in Sources */,
@@ -388,6 +407,7 @@
 				73B8825628F5EDE800CA51DF /* OnboardingContainerVC.swift in Sources */,
 				73AA37C128F61E570077C397 /* AutoLogin.swift in Sources */,
 				73AA37BF28F61BEF0077C397 /* LocalState.swift in Sources */,
+				734C2C5F2901A5D800572900 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

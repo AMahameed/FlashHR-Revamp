@@ -61,24 +61,25 @@ class LoginView: UIView {
             shakeButton()
         }else{
             errorLabel.isHidden = true
-
-                if !LocalState.hasOnboarded{
-                    onboardingvVC.modalPresentationStyle = .fullScreen
-                    delegate?.didPressloginBtnToOnboading(button: loginButton)
-                }else{
-                    comSelNC = UINavigationController(rootViewController: comSelectionVC)
-                    comSelNC.modalPresentationStyle = .fullScreen
-                    delegate?.didPressloginBtnToCompanySelection(button: loginButton)
-                }
+            
+            if !LocalState.hasOnboarded{
+                onboardingvVC.modalPresentationStyle = .fullScreen
+                delegate?.didPressloginBtnToOnboading(button: loginButton)
+            }else{
+                comSelNC = UINavigationController(rootViewController: comSelectionVC)
+                comSelNC.modalPresentationStyle = .fullScreen
+                delegate?.didPressloginBtnToCompanySelection(button: loginButton)
+            }
         }
     }
     
     @objc func resetPassPressed(_ sender: UIButton){
         delegate?.didPressPassResetBtn(button: sender)
     }
-
+    
 }
 
+//MARK: style and layout
 extension LoginView {
     func style() {
         backgroundColor = .systemBackground
@@ -91,7 +92,7 @@ extension LoginView {
         
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.configuration = .filled()
-//        signinButton.configuration?.imagePadding = 8
+        //        signinButton.configuration?.imagePadding = 8
         loginButton.setTitle("Login ", for: [])
         loginButton.tintColor = UIColor(named: "blue")
         loginButton.addTarget(self, action: #selector(loginPressed), for: .primaryActionTriggered)
@@ -125,7 +126,7 @@ extension LoginView {
         errorLabel.textColor = .systemRed
         errorLabel.isHidden = true
     }
-
+    
     func layout() {
         
         headerStackView.addSubview(logoImage)
@@ -194,25 +195,25 @@ extension LoginView {
 // MARK: - Animations
 extension LoginView {
     private func animate() {
-
+        
         let duration = 1.0
-
+        
         let animator = UIViewPropertyAnimator(duration: duration*1.5, curve: .easeInOut) {
             self.headerStackView.alpha = 1
             self.descriptionLabel.alpha = 1
         }
-
+        
         animator.startAnimation()
     }
-
+    
     private func shakeButton() {
         let animation = CAKeyframeAnimation()
         animation.keyPath = "position.x"
         animation.values = [0, 10, -10, 10, 0]
         animation.keyTimes = [0, 0.16, 0.5, 0.83, 1]
         animation.duration = 0.3
-
+        
         animation.isAdditive = true
-            loginButton.layer.add(animation, forKey: "shake")
+        loginButton.layer.add(animation, forKey: "shake")
     }
 }

@@ -52,6 +52,7 @@ class OnboardingVC: UIViewController {
     }
 }
 
+//MARK: style and layout
 extension OnboardingVC {
     
     private func setup() {

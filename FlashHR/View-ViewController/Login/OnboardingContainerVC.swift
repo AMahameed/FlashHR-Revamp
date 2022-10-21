@@ -34,6 +34,7 @@ class OnboardingContainerVC: UIViewController {
     }
 }
 
+//MARK: style and layout
 extension OnboardingContainerVC {
     
     func style() {

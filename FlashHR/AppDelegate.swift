@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         
-        setRootViewController(DS)
+//        setRootViewController(DS)
         
-//        displayLogin()
+        displayLogin()
         return true
     }
 
