@@ -44,7 +44,7 @@ extension DepartmentSelectionCell{
         depLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
 
         divider.translatesAutoresizingMaskIntoConstraints = false
-        divider.backgroundColor = UIColor.systemFill
+        divider.backgroundColor = UIColor(named: "blue")
         
         depTextfield.translatesAutoresizingMaskIntoConstraints = false
         depTextfield.borderStyle = .roundedRect

@@ -93,7 +93,7 @@ extension LoginView {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.configuration = .filled()
         //        signinButton.configuration?.imagePadding = 8
-        loginButton.setTitle("Login ", for: [])
+        loginButton.setTitle("Login", for: [])
         loginButton.tintColor = UIColor(named: "blue")
         loginButton.addTarget(self, action: #selector(loginPressed), for: .primaryActionTriggered)
         

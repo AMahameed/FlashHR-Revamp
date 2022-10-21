@@ -14,8 +14,11 @@ import UIKit
 class CompanySelectionView: UIView {
     
     let stackView = UIStackView()
+    let labelStackView = UIStackView()
     
     let descriptionLabel = UILabel()
+    let description2Label = UILabel()
+    let description3Label = UILabel()
     let comNameTextfield = UITextField()
     let comUIDTextfield = UITextField()
     
@@ -54,12 +57,31 @@ extension CompanySelectionView {
         stackView.distribution = .fillProportionally
         stackView.spacing = 40
         
+        labelStackView.translatesAutoresizingMaskIntoConstraints = false
+        labelStackView.axis = .vertical
+        labelStackView.distribution = .fillProportionally
+        labelStackView.spacing = 10
+        
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        descriptionLabel.text = "𝘾𝙤𝙢𝙥𝙖𝙣𝙮 𝙉𝙖𝙢𝙚, should be written as per the govermental registrations. 𝘾𝙤𝙢𝙥𝙖𝙣𝙮 𝙐𝙄𝘿, will be filled automatically."
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        descriptionLabel.attributedText = helperServices.partialBoldString("Company Name", ", should be written as per the govermental registrations.")
         descriptionLabel.textColor = .label
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .left
+        
+        description2Label.translatesAutoresizingMaskIntoConstraints = false
+        description2Label.font = UIFont.preferredFont(forTextStyle: .title3)
+        description2Label.attributedText = helperServices.partialBoldString("Company UID", ", will be filled automatically")
+        description2Label.textColor = .label
+        description2Label.numberOfLines = 0
+        description2Label.textAlignment = .left
+        
+        description3Label.translatesAutoresizingMaskIntoConstraints = false
+        description3Label.font = UIFont.preferredFont(forTextStyle: .title2)
+        description3Label.text = "Entry Rules:"
+        description3Label.textColor = .label
+        description3Label.numberOfLines = 0
+        description3Label.textAlignment = .left
         
         comNameTextfield.translatesAutoresizingMaskIntoConstraints = false
         comNameTextfield.borderStyle = .roundedRect
@@ -84,7 +106,11 @@ extension CompanySelectionView {
     
     func layout() {
         
-        stackView.addArrangedSubview(descriptionLabel)
+        labelStackView.addArrangedSubview(description3Label)
+        labelStackView.addArrangedSubview(descriptionLabel)
+        labelStackView.addArrangedSubview(description2Label)
+        
+        stackView.addArrangedSubview(labelStackView)
         stackView.addArrangedSubview(comNameTextfield)
         stackView.addArrangedSubview(comUIDTextfield)
         stackView.addArrangedSubview(nextButton)

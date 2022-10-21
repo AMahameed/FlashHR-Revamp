@@ -21,7 +21,7 @@ class PasswordResetView: UIView {
     let usernameTextfield = UITextField()
     let userTypeLabel = UILabel()
     let divider = UIView()
-    let submitButton = UIButton(type: .system)
+    let submitButton = UIButton(type: .custom)
     let backButton = UIButton(type: .close)
     
     weak var delegate: PassResetButtonsPressed?
@@ -86,9 +86,9 @@ extension PasswordResetView {
         usernameTextfield.delegate = self
         
         submitButton.translatesAutoresizingMaskIntoConstraints = false
-        submitButton.backgroundColor = UIColor(named: "blue")
         submitButton.configuration = .filled()
         submitButton.setTitle("Submit", for: [])
+        submitButton.tintColor = UIColor(named: "blue")
         submitButton.addTarget(self, action: #selector(submitPressed), for: .primaryActionTriggered)
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
