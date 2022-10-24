@@ -12,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
     let loginVC = LoginVC()
-    let DS = DepartmentSelection()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

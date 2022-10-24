@@ -1,18 +1,15 @@
 //
-//  DepartmentSelectionView.swift
+//  CreateEmployeeView.swift
 //  FlashHR
 //
-//  Created by Abdallah Mahameed on 19/10/2022.
+//  Created by Abdallah Mahameed on 22/10/2022.
 //
 
 import UIKit
 
-class DepartmentSelectionView: UIView {
+class CreateEmployeeView: UIView {
     
     let tableView = UITableView()
-    var departments = [Department(depName: "Human Resources", depUID: "0"),
-                       Department(depName: "Information Technology ", depUID: "1"),
-                       Department(depName: "Customer Service", depUID: "2")]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,17 +23,15 @@ class DepartmentSelectionView: UIView {
     }
 }
 
-//MARK: style and layout
-extension DepartmentSelectionView {
+extension CreateEmployeeView {
     
     func style() {
         backgroundColor = .systemBackground
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(DepartmentSelectionCell.self, forCellReuseIdentifier: DepartmentSelectionCell.reuseID)
+        tableView.register(CreatedEmployeeCell.self, forCellReuseIdentifier: CreatedEmployeeCell.reuseID)
         tableView.register(DepartmentSelectionBtnCell.self, forCellReuseIdentifier: DepartmentSelectionBtnCell.reuseID)
-        tableView.rowHeight = DepartmentSelectionCell.rowHeight
-        tableView.separatorColor = .systemGray
+        tableView.rowHeight = 160
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.backgroundColor = .systemGray5
@@ -46,7 +41,7 @@ extension DepartmentSelectionView {
         
         addSubview(tableView)
         
-        //        tableView
+//        tableView
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),

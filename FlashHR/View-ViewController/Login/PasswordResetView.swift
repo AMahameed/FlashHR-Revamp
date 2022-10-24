@@ -92,7 +92,6 @@ extension PasswordResetView {
         submitButton.addTarget(self, action: #selector(submitPressed), for: .primaryActionTriggered)
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.tintColor = UIColor(named: "blue")
         backButton.addTarget(self, action: #selector(backPressed), for: .primaryActionTriggered)
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DepartmentSelection: UIViewController{
+class DepartmentSelection: UIViewController, nextPerssedInDepSelection{
     
     let departmentSelectionView = DepartmentSelectionView()
     
@@ -31,6 +31,11 @@ class DepartmentSelection: UIViewController{
     @objc func addDepPressed(_ sender: UIBarButtonItem){
         departmentSelectionView.departments.append(Department(depName: "Test Cell", depUID: ""))
         departmentSelectionView.tableView.reloadData()
+    }
+    
+    func didPressNextOrSave(cell: DepartmentSelectionBtnCell) {
+        cell.createEmp.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(cell.createEmp, animated: true)
     }
 }
 
@@ -59,6 +64,8 @@ extension DepartmentSelection: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
         guard let btnCell = tableView.dequeueReusableCell(withIdentifier: DepartmentSelectionBtnCell.reuseID) as? DepartmentSelectionBtnCell else {return UITableViewCell()}
+        
+        btnCell.delegate = self
         
         return btnCell
     }

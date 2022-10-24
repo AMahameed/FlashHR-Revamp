@@ -16,7 +16,6 @@ class DepartmentSelectionCell: UITableViewCell {
     let stackView = UIView()
     
     static let reuseID = "DepartmentSelectionCell"
-    static let rowHeight: CGFloat = 165
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -70,7 +69,7 @@ extension DepartmentSelectionCell{
         
         contentView.addSubview(stackView)
         
-
+//       view
         NSLayoutConstraint.activate([
         
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1.5),

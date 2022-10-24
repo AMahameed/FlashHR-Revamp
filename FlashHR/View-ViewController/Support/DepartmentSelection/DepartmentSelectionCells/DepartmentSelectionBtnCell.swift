@@ -5,16 +5,20 @@
 //  Created by Abdallah Mahameed on 20/10/2022.
 //
 
+protocol nextPerssedInDepSelection: AnyObject{
+    func didPressNextOrSave(cell: DepartmentSelectionBtnCell)
+}
 
 import UIKit
 
 class DepartmentSelectionBtnCell: UITableViewCell {
     
     let nextButton = UIButton(type: .custom)
-    let stackView = UIView()
+    let createEmp = CreateEmployee()
+    
+    weak var delegate: nextPerssedInDepSelection?
     
     static let reuseID = "DepartmentSelectionBtnCell"
-    static let rowHeight: CGFloat = 120
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,7 +32,7 @@ class DepartmentSelectionBtnCell: UITableViewCell {
     }
     
     @objc func nextPressed(_ sender: UIButton){
-        print("foo - Next Pressed")
+        delegate?.didPressNextOrSave(cell: self)
     }
 }
 
@@ -38,37 +42,25 @@ extension DepartmentSelectionBtnCell{
         
         backgroundColor = .systemBackground
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.configuration = .filled()
         nextButton.setTitle("Save & Next", for: [])
         nextButton.tintColor = UIColor(named: "blue")
         nextButton.addTarget(self, action: #selector(nextPressed), for: .primaryActionTriggered)
+        
     }
     
     func layout() {
         
-        stackView.addSubview(nextButton)
-      
-        contentView.addSubview(stackView)
-        
-//        UIVIEW
-        NSLayoutConstraint.activate([
-        
-            stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1.5),
-            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1.5),
-            trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1.5),
-            bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1.5)
-        ])
+        contentView.addSubview(nextButton)
         
 //        nextButton
         NSLayoutConstraint.activate([
         
-            nextButton.topAnchor.constraint(equalToSystemSpacingBelow: stackView.topAnchor, multiplier: 2),
-            nextButton.leadingAnchor.constraint(equalToSystemSpacingAfter: stackView.leadingAnchor, multiplier: 2),
-            stackView.bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.bottomAnchor, multiplier: 2),
-            stackView.trailingAnchor.constraint(equalToSystemSpacingAfter: nextButton.trailingAnchor, multiplier: 2)
+            nextButton.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 3.5),
+            nextButton.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 3.5),
+            bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.bottomAnchor, multiplier: 3.5),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: nextButton.trailingAnchor, multiplier: 3.5)
             
         ])
     }
