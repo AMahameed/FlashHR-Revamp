@@ -10,9 +10,6 @@ import UIKit
 class DepartmentSelectionView: UIView{
     
     let tableView = UITableView()
-    var departments = [Department(depName: "Human Resources", depUID: "0"),
-                       Department(depName: "Information Technology ", depUID: "1"),
-                       Department(depName: "Customer Service", depUID: "2")]
     
     override init(frame: CGRect) {
         super.init(frame: frame)

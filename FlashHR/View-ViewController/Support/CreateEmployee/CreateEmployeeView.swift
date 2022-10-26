@@ -10,6 +10,7 @@ import UIKit
 class CreateEmployeeView: UIView {
     
     let tableView = UITableView()
+//    let tableBackgroundImg = UIImageView(image: UIImage(named: "addEmp"))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,18 +36,29 @@ extension CreateEmployeeView {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.backgroundColor = .systemGray5
+//        tableView.backgroundView = tableBackgroundImg
+        
+//        tableBackgroundImg.translatesAutoresizingMaskIntoConstraints = false
+    
     }
     
     func layout() {
         
+        //        tableView.addSubview(tableBackgroundImg)
         addSubview(tableView)
         
-//        tableView
+        //        tableView
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            
+            //            tableBackgroundImg.heightAnchor.constraint(equalToConstant: 250),
+            //            tableBackgroundImg.widthAnchor.constraint(equalToConstant: 361),
+            //            tableBackgroundImg.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            //            tableBackgroundImg.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
         ])
     }
+        
 }

@@ -62,23 +62,6 @@ struct WorkTansactions {
     var actualWorkingHours: String = ""
 }
 
-struct TransactionsHolder {
-    var projectName: String = ""
-    var contactNo: String = ""
-    var startTime: String = ""
-    var dayStr: String = ""
-    var workingHours: Int = 0
-    var long: Double = 0.0
-    var lat: Double = 0.0
-    var isRequestedLeave: Bool = false
-    var isWorked: Bool = false
-    var isWorkedTotally: Bool = false
-    var leaveHours: Float = 0.0
-    var actualStart: String = ""
-    var actualEnd: String = ""
-    var actualWorkingHours: String = ""
-}
-
 struct Level{
     var isHRManager: Bool = false
     var isHRAgent: Bool = false

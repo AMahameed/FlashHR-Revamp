@@ -122,6 +122,8 @@
 				73201D2C2905C9C100187950 /* AddEmployee.swift */,
 				73201D2E2905C9D500187950 /* AddEmployeeView.swift */,
 				73201D302905D0FC00187950 /* AddEmployeeCell */,
+				73201D3329091D5F00187950 /* SelectDepartment */,
+				73201D3429091D7800187950 /* selectLevel */,
 			);
 			path = AddEmployee;
 			sourceTree = "<group>";
@@ -132,6 +134,20 @@
 				73201D312905D63B00187950 /* AddEmployeeCell.swift */,
 			);
 			path = AddEmployeeCell;
+			sourceTree = "<group>";
+		};
+		73201D3329091D5F00187950 /* SelectDepartment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SelectDepartment;
+			sourceTree = "<group>";
+		};
+		73201D3429091D7800187950 /* selectLevel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = selectLevel;
 			sourceTree = "<group>";
 		};
 		7348470D290585FE009BB097 /* CreatedEmplyeeCell */ = {

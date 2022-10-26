@@ -9,7 +9,11 @@ import UIKit
 
 class DepartmentSelection: UIViewController, nextPerssedInDepSelection{
     
+    let createEmp = CreateEmployee()
     let departmentSelectionView = DepartmentSelectionView()
+    var departments: [Department] = []//Department(depName: "Human Resources", depUID: "0"),
+                       //Department(depName: "Information Technology ", depUID: "1"),
+                       //Department(depName: "Customer Service", depUID: "2")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +33,13 @@ class DepartmentSelection: UIViewController, nextPerssedInDepSelection{
     }
     
     @objc func addDepPressed(_ sender: UIBarButtonItem){
-        departmentSelectionView.departments.append(Department(depName: "Test Cell", depUID: ""))
+        departments.append(Department(depName: "", depUID: ""))
         departmentSelectionView.tableView.reloadData()
     }
     
-    func didPressNextOrSave(cell: DepartmentSelectionBtnCell) {
-        cell.createEmp.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(cell.createEmp, animated: true)
+    func didPressNextOrSave(_ button: UIButton) {
+        createEmp.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(createEmp, animated: true)
     }
 }
 
@@ -43,7 +47,7 @@ class DepartmentSelection: UIViewController, nextPerssedInDepSelection{
 extension DepartmentSelection: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        departmentSelectionView.departments.count
+        departments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +55,7 @@ extension DepartmentSelection: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DepartmentSelectionCell.reuseID, for: indexPath) as? DepartmentSelectionCell else {return UITableViewCell()}
         
         cell.depLabel.text = "Department No. " + indexPath.row.description
-        cell.depTextfield.text = departmentSelectionView.departments[indexPath.row].depName
+        cell.depTextfield.text = departments[indexPath.row].depName
         cell.IDTextfield.text = indexPath.row.description
         
         return cell

@@ -6,7 +6,7 @@
 //
 
 protocol nextPerssedInDepSelection: AnyObject{
-    func didPressNextOrSave(cell: DepartmentSelectionBtnCell)
+    func didPressNextOrSave(_ button: UIButton)
 }
 
 import UIKit
@@ -14,7 +14,6 @@ import UIKit
 class DepartmentSelectionBtnCell: UITableViewCell {
     
     let nextButton = UIButton(type: .custom)
-    let createEmp = CreateEmployee()
     
     weak var delegate: nextPerssedInDepSelection?
     
@@ -32,7 +31,29 @@ class DepartmentSelectionBtnCell: UITableViewCell {
     }
     
     @objc func nextPressed(_ sender: UIButton){
-        delegate?.didPressNextOrSave(cell: self)
+        delegate?.didPressNextOrSave(sender)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        nextButton.setTitle("", for: [])
+    }
+    
+    func configureBtnCell(at row: Int) {
+
+        switch row {
+        case 3:
+            nextButton.setTitle("select Department", for: [])
+            nextButton.tag = 1
+        case 4:
+            nextButton.setTitle("select Level", for: [])
+            nextButton.tag = 2
+        case 7:
+            nextButton.setTitle("save", for: [])
+            nextButton.tag = 3
+        default:
+            break
+        }
     }
 }
 

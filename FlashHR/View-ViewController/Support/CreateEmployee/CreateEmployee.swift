@@ -7,17 +7,25 @@
 
 import UIKit
 
-class CreateEmployee: UIViewController, nextPerssedInDepSelection {
-    
+class CreateEmployee: UIViewController, nextPerssedInDepSelection, didAddNewEmp{
+
     let createEmpView = CreateEmployeeView()
     let addEmployeeVC = AddEmployee()
+    
+    var addedEmp: [Employee] = []{
+        didSet{
+            createEmpView.tableView.reloadData()
+        }
+    }
+    
+    var availableDep: [Department] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createEmpView.tableView.delegate = self
         createEmpView.tableView.dataSource = self
-        
+        addEmployeeVC.delegate = self
     }
     
     override func loadView() {
@@ -30,11 +38,18 @@ class CreateEmployee: UIViewController, nextPerssedInDepSelection {
     }
     
     @objc func addEmployee(_ sender: UIBarButtonItem){
+//        addEmployeeVC.modalPresentationStyle = .fullScreen
         present(addEmployeeVC, animated: true)
+        
     }
     
-    func didPressNextOrSave(cell: DepartmentSelectionBtnCell) {
+    func didPressNextOrSave(_ button: UIButton) {
         print("foo - next pressed")
+    }
+    
+    func didAddEmployee(_ emp: Employee) {
+        addedEmp.append(emp)
+        
     }
 }
 
@@ -42,19 +57,15 @@ class CreateEmployee: UIViewController, nextPerssedInDepSelection {
 
 extension CreateEmployee: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        addedEmp.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CreatedEmployeeCell.reuseID, for: indexPath) as? CreatedEmployeeCell else {return UITableViewCell()}
         
-        cell.nameLabel.text = "Abdallah Mahameed"
-        cell.titleLabel.text = "iOS App Developer"
-        cell.levelLabel.text = "Employee"
-        cell.statusLabel.text = "Active"
+        cell.configure(name: addedEmp[indexPath.row].name, title: addedEmp[indexPath.row].title)
         
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -63,12 +74,16 @@ extension CreateEmployee: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 
-        guard let btnCell = tableView.dequeueReusableCell(withIdentifier: DepartmentSelectionBtnCell.reuseID) as? DepartmentSelectionBtnCell else {return UITableViewCell()}
-
-        btnCell.nextButton.setTitle("Save", for: [])
-        btnCell.delegate = self
-
-        return btnCell
+        if  addedEmp.count != 0{
+            guard let btnCell = tableView.dequeueReusableCell(withIdentifier: DepartmentSelectionBtnCell.reuseID) as? DepartmentSelectionBtnCell else {return UITableViewCell()}
+            
+            btnCell.nextButton.setTitle("Save", for: [])
+            btnCell.delegate = self
+            
+            return btnCell
+        }else{
+            return UIView()
+        }
     }
 }
 
