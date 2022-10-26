@@ -8,13 +8,13 @@
 import Foundation
 
 struct Department {
-    let depName: String
-    let depUID: String
+    var depName: String = ""
+    var depUID: String = ""
     
-    init(depName: String, depUID: String) {
-        self.depName = depName
-        self.depUID = depUID
-    }
+//    init(depName: String, depUID: String) {
+//        self.depName = depName
+//        self.depUID = depUID
+//    }
 }
 
 class Employee {

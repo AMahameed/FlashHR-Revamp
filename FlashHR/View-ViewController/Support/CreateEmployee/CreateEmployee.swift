@@ -10,7 +10,6 @@ import UIKit
 class CreateEmployee: UIViewController, nextPerssedInDepSelection, didAddNewEmp{
 
     let createEmpView = CreateEmployeeView()
-    let addEmployeeVC = AddEmployee()
     
     var addedEmp: [Employee] = []{
         didSet{
@@ -18,14 +17,11 @@ class CreateEmployee: UIViewController, nextPerssedInDepSelection, didAddNewEmp{
         }
     }
     
-    var availableDep: [Department] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createEmpView.tableView.delegate = self
         createEmpView.tableView.dataSource = self
-        addEmployeeVC.delegate = self
     }
     
     override func loadView() {
@@ -38,7 +34,8 @@ class CreateEmployee: UIViewController, nextPerssedInDepSelection, didAddNewEmp{
     }
     
     @objc func addEmployee(_ sender: UIBarButtonItem){
-//        addEmployeeVC.modalPresentationStyle = .fullScreen
+        let addEmployeeVC = AddEmployee()
+        addEmployeeVC.delegate = self
         present(addEmployeeVC, animated: true)
         
     }

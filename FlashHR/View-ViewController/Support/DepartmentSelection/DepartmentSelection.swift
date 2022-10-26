@@ -9,11 +9,14 @@ import UIKit
 
 class DepartmentSelection: UIViewController, nextPerssedInDepSelection{
     
-    let createEmp = CreateEmployee()
     let departmentSelectionView = DepartmentSelectionView()
-    var departments: [Department] = []//Department(depName: "Human Resources", depUID: "0"),
-                       //Department(depName: "Information Technology ", depUID: "1"),
-                       //Department(depName: "Customer Service", depUID: "2")]
+
+    var realDeps: [Department] = [Department(depName: "", depUID: "") ]{
+        didSet{
+            departmentSelectionView.tableView.reloadData()
+        }
+    }
+    var department = Department()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,36 +30,30 @@ class DepartmentSelection: UIViewController, nextPerssedInDepSelection{
         
         view = departmentSelectionView
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDepPressed))
         view.backgroundColor = .systemBackground
-        title = "Departments Selection"
-    }
-    
-    @objc func addDepPressed(_ sender: UIBarButtonItem){
-        departments.append(Department(depName: "", depUID: ""))
-        departmentSelectionView.tableView.reloadData()
+        title = "Departments"
     }
     
     func didPressNextOrSave(_ button: UIButton) {
-        createEmp.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(createEmp, animated: true)
+        navigationController?.pushViewController(CreateEmployee(), animated: true)
     }
 }
 
 //MARK: TableView Delegate and DataSource
 extension DepartmentSelection: UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        departments.count
+        return realDeps.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DepartmentSelectionCell.reuseID, for: indexPath) as? DepartmentSelectionCell else {return UITableViewCell()}
         
-        cell.depLabel.text = "Department No. " + indexPath.row.description
-        cell.depTextfield.text = departments[indexPath.row].depName
-        cell.IDTextfield.text = indexPath.row.description
+        cell.depTextfield.delegate = self
+        cell.configureCell(at: indexPath.row)
+        cell.depTextfield.text = realDeps[indexPath.row].depName
+        department.depUID = indexPath.row.description
         
         return cell
     }
@@ -66,12 +63,29 @@ extension DepartmentSelection: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
-        guard let btnCell = tableView.dequeueReusableCell(withIdentifier: DepartmentSelectionBtnCell.reuseID) as? DepartmentSelectionBtnCell else {return UITableViewCell()}
-        
-        btnCell.delegate = self
-        
-        return btnCell
+
+        if realDeps.count > 1{
+            guard let btnCell = tableView.dequeueReusableCell(withIdentifier: DepartmentSelectionBtnCell.reuseID) as? DepartmentSelectionBtnCell else {return UITableViewCell()}
+
+            btnCell.delegate = self
+
+            return btnCell
+        }else{
+            return UIView()
+        }
     }
 }
 
+extension DepartmentSelection: UITextFieldDelegate{
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        department.depName = textField.text ?? ""
+        guard !department.depName.replacingOccurrences(of: " ", with: "").isEmpty else {return}
+        realDeps.append(department)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+}

@@ -93,6 +93,7 @@ extension CompanySelectionView {
         comUIDTextfield.borderStyle = .roundedRect
         comUIDTextfield.backgroundColor = .systemGray5
         comUIDTextfield.placeholder = "Company UID   e.g. 23"
+        comUIDTextfield.isEnabled = false
         comUIDTextfield.delegate = self
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false

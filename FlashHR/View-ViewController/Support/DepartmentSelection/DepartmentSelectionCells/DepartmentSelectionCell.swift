@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DepartmentSelectionCell: UITableViewCell {
+class DepartmentSelectionCell: UITableViewCell, UITextFieldDelegate {
     
     let depLabel = UILabel()
     let divider = UIView()
@@ -26,6 +26,15 @@ class DepartmentSelectionCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        depTextfield.text = textField.text ?? ""
+    }
+    
+    func configureCell(at row: Int) {
+        depLabel.text = "Department No. " + String(row)
+        IDTextfield.text = String(row)
     }
 }
 
@@ -55,8 +64,6 @@ extension DepartmentSelectionCell{
         IDTextfield.borderStyle = .roundedRect
         IDTextfield.isUserInteractionEnabled = false
         IDTextfield.backgroundColor = .systemGray5
-        IDTextfield.placeholder = "Department UID"
-        IDTextfield.delegate = self
         
     }
     
@@ -107,10 +114,3 @@ extension DepartmentSelectionCell{
     }
 }
 
-extension DepartmentSelectionCell: UITextFieldDelegate{
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        depTextfield.endEditing(true)
-        return true
-    }
-}

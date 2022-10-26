@@ -21,7 +21,7 @@ class CompanySelection: UIViewController {
         super.loadView()
         view = comSelectionView
         navigationController?.interactivePopGestureRecognizer?.delegate = self
-        title = "Company Selection"
+        title = "Company"
     }
 }
 
