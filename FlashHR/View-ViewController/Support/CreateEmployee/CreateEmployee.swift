@@ -45,8 +45,7 @@ class CreateEmployee: UIViewController, nextPerssedInDepSelection, didAddNewEmp{
     }
     
     func didAddEmployee(_ emp: Employee) {
-        addedEmp.append(emp)
-        
+        addedEmp.append(emp) 
     }
 }
 

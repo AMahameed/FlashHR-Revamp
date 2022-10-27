@@ -7,18 +7,20 @@
 
 import Foundation
 
+struct Company {
+    var companyName: String = ""
+    var companyUID: String = ""
+    var companyDeps: [Department] = []
+}
+
 struct Department {
     var depName: String = ""
     var depUID: String = ""
-    
-//    init(depName: String, depUID: String) {
-//        self.depName = depName
-//        self.depUID = depUID
-//    }
+    var departmentEmps: [Employee] = []
 }
 
 class Employee {
-    var empID: String = ""
+    var empUID: String = ""
     var empImageData: Data = Data()
     var email: String = ""
     var password: String = ""
@@ -30,9 +32,9 @@ class Employee {
     var level: Level = Level()
     var workTransactions: [WorkTansactions] = []
     
-    init(empID: String = "", empImageData: Data = Data(), email: String = "", password: String = "", name: String = "", title: String = "", mobile: String = "", department: String = "", isDeleted: Bool = false) {
+    init(empUID: String = "", empImageData: Data = Data(), email: String = "", password: String = "", name: String = "", title: String = "", mobile: String = "", department: String = "", isDeleted: Bool = false, level: Level = Level(), workTransactions: [WorkTansactions] = []) {
         
-        self.empID = empID
+        self.empUID = empUID
         self.empImageData = empImageData
         self.name = name
         self.mobile = mobile
@@ -41,9 +43,18 @@ class Employee {
         self.password = password
         self.email = email
         self.isDeleted = isDeleted
+        self.level = level
+        self.workTransactions = workTransactions
     }
 }
 
+struct Level{
+    var isHRManager: Bool = false
+    var isHRAgent: Bool = false
+    var isManager: Bool = false
+    var isSupervisor: Bool = false
+    var isEmployee: Bool = false
+}
 
 struct WorkTansactions {
     var projectName: String = ""
@@ -60,13 +71,5 @@ struct WorkTansactions {
     var actualStart: String = ""
     var actualEnd: String = ""
     var actualWorkingHours: String = ""
-}
-
-struct Level{
-    var isHRManager: Bool = false
-    var isHRAgent: Bool = false
-    var isManager: Bool = false
-    var isSupervisor: Bool = false
-    var isEmployee: Bool = false
 }
 

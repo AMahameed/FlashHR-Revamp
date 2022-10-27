@@ -45,7 +45,6 @@ class AddEmployee: UIViewController, didPressCloseButton, nextPerssedInDepSelect
             print("foo - Level")
         case 3:
             delegate?.didAddEmployee(addEmployee)
-            //addEmployee = Employee() // remeber to remove this when fetching data online
             dismiss(animated: true)
         default:
             print("faild")

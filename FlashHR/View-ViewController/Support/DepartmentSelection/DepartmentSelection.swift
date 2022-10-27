@@ -37,6 +37,15 @@ class DepartmentSelection: UIViewController, nextPerssedInDepSelection{
     func didPressNextOrSave(_ button: UIButton) {
         navigationController?.pushViewController(CreateEmployee(), animated: true)
     }
+    
+    func depAdditionChecks(for text: String?){
+        guard !department.depName.replacingOccurrences(of: " ", with: "").isEmpty else {return}
+        
+        for dep in realDeps {
+            guard let text = text, !dep.depName.elementsEqual(text) else {return}}// present alert message
+        
+        realDeps.append(department)
+    }
 }
 
 //MARK: TableView Delegate and DataSource
@@ -80,8 +89,7 @@ extension DepartmentSelection: UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         department.depName = textField.text ?? ""
-        guard !department.depName.replacingOccurrences(of: " ", with: "").isEmpty else {return}
-        realDeps.append(department)
+        depAdditionChecks(for: textField.text)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

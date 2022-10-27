@@ -64,9 +64,10 @@ extension CreatedEmployeeCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         nameLabel.textColor = .label
-//        nameLabel.adjustsFontSizeToFitWidth = true
-//        nameLabel.minimumScaleFactor = 0.5
-//        nameLabel.numberOfLines = 1
+        nameLabel.numberOfLines = 1
+        nameLabel.adjustsFontSizeToFitWidth = true
+        nameLabel.minimumScaleFactor = 0.5
+       
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)

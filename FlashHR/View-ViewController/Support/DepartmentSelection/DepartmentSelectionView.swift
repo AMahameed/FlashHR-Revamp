@@ -36,7 +36,6 @@ extension DepartmentSelectionView {
         tableView.separatorColor = .systemGray
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
-        tableView.backgroundColor = .systemGray5
     }
     
     func layout() {

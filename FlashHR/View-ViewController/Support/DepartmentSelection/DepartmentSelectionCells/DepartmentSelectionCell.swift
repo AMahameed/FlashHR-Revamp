@@ -28,9 +28,9 @@ class DepartmentSelectionCell: UITableViewCell, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        depTextfield.text = textField.text ?? ""
-    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        depTextfield.text = textField.text ?? ""
+//    }
     
     func configureCell(at row: Int) {
         depLabel.text = "Department No. " + String(row)
@@ -49,7 +49,7 @@ extension DepartmentSelectionCell{
         stackView.clipsToBounds = true
         
         depLabel.translatesAutoresizingMaskIntoConstraints = false
-        depLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
+        depLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
 
         divider.translatesAutoresizingMaskIntoConstraints = false
         divider.backgroundColor = UIColor(named: "blue")
@@ -58,7 +58,8 @@ extension DepartmentSelectionCell{
         depTextfield.borderStyle = .roundedRect
         depTextfield.placeholder = "Department Name"
         depTextfield.backgroundColor = .systemGray5
-        depTextfield.delegate = self
+        depTextfield.returnKeyType = UIReturnKeyType.next
+//        depTextfield.delegate = self
         
         IDTextfield.translatesAutoresizingMaskIntoConstraints = false
         IDTextfield.borderStyle = .roundedRect
