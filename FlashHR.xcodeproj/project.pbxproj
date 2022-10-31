@@ -18,6 +18,8 @@
 		733EA53328FE362700638E48 /* UIFont+HelperServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733EA53228FE362700638E48 /* UIFont+HelperServices.swift */; };
 		734C2C5D29019FEB00572900 /* DepartmentSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734C2C5C29019FEB00572900 /* DepartmentSelectionCell.swift */; };
 		734C2C5F2901A5D800572900 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734C2C5E2901A5D800572900 /* Models.swift */; };
+		736CA119290D77C400A78BEE /* ChoosingDepartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736CA118290D77C400A78BEE /* ChoosingDepartment.swift */; };
+		736CA11B290D793100A78BEE /* ChoosingDepartmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736CA11A290D793100A78BEE /* ChoosingDepartmentCell.swift */; };
 		73AA37BF28F61BEF0077C397 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA37BE28F61BEF0077C397 /* LocalState.swift */; };
 		73AA37C128F61E570077C397 /* AutoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA37C028F61E570077C397 /* AutoLogin.swift */; };
 		73AA37C328F61FED0077C397 /* UserDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA37C228F61FED0077C397 /* UserDataServices.swift */; };
@@ -67,6 +69,8 @@
 		733EA53228FE362700638E48 /* UIFont+HelperServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+HelperServices.swift"; sourceTree = "<group>"; };
 		734C2C5C29019FEB00572900 /* DepartmentSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentSelectionCell.swift; sourceTree = "<group>"; };
 		734C2C5E2901A5D800572900 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		736CA118290D77C400A78BEE /* ChoosingDepartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingDepartment.swift; sourceTree = "<group>"; };
+		736CA11A290D793100A78BEE /* ChoosingDepartmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingDepartmentCell.swift; sourceTree = "<group>"; };
 		73AA37BE28F61BEF0077C397 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		73AA37C028F61E570077C397 /* AutoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLogin.swift; sourceTree = "<group>"; };
 		73AA37C228F61FED0077C397 /* UserDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataServices.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 		73201D3329091D5F00187950 /* SelectDepartment */ = {
 			isa = PBXGroup;
 			children = (
+				736CA118290D77C400A78BEE /* ChoosingDepartment.swift */,
+				736CA11A290D793100A78BEE /* ChoosingDepartmentCell.swift */,
 			);
 			path = SelectDepartment;
 			sourceTree = "<group>";
@@ -474,11 +480,13 @@
 				73D86E6128FC906C007B9B2A /* PasswordResetView.swift in Sources */,
 				73BFCF032901CADB00A88551 /* DepartmentSelectionBtnCell.swift in Sources */,
 				73201D2A2905B82300187950 /* CreatedEmployeeCell.swift in Sources */,
+				736CA119290D77C400A78BEE /* ChoosingDepartment.swift in Sources */,
 				73AA37C528F620360077C397 /* Constants.swift in Sources */,
 				73B8825428F5EDBB00CA51DF /* OnboardingVC.swift in Sources */,
 				73ADFB3D28F0A628007D1D59 /* PasswordReset.swift in Sources */,
 				73201D2F2905C9D500187950 /* AddEmployeeView.swift in Sources */,
 				73B6A32928EF6FB100D9DCB6 /* LoginTextFieldView.swift in Sources */,
+				736CA11B290D793100A78BEE /* ChoosingDepartmentCell.swift in Sources */,
 				73AA37C328F61FED0077C397 /* UserDataServices.swift in Sources */,
 				73201D322905D63B00187950 /* AddEmployeeCell.swift in Sources */,
 				73AB6B0528F9B6480003AFB1 /* LoginView.swift in Sources */,

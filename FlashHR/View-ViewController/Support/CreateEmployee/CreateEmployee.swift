@@ -36,6 +36,7 @@ class CreateEmployee: UIViewController, nextPerssedInDepSelection, didAddNewEmp{
     @objc func addEmployee(_ sender: UIBarButtonItem){
         let addEmployeeVC = AddEmployee()
         addEmployeeVC.delegate = self
+        addEmployeeVC.modalPresentationStyle = .fullScreen
         present(addEmployeeVC, animated: true)
         
     }

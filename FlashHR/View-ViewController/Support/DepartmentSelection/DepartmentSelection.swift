@@ -9,9 +9,10 @@ import UIKit
 
 class DepartmentSelection: UIViewController, nextPerssedInDepSelection{
     
+    let createEmpVC = CreateEmployee()
     let departmentSelectionView = DepartmentSelectionView()
 
-    var realDeps: [Department] = [Department(depName: "", depUID: "") ]{
+    var realDeps: [Department] = [Department(depName: "", depUID: "")]{
         didSet{
             departmentSelectionView.tableView.reloadData()
         }
@@ -35,14 +36,15 @@ class DepartmentSelection: UIViewController, nextPerssedInDepSelection{
     }
     
     func didPressNextOrSave(_ button: UIButton) {
-        navigationController?.pushViewController(CreateEmployee(), animated: true)
+        realDeps.removeFirst()
+        navigationController?.pushViewController(createEmpVC, animated: true)
     }
     
     func depAdditionChecks(for text: String?){
-        guard !department.depName.replacingOccurrences(of: " ", with: "").isEmpty else {return}
+        guard !department.depName.replacingOccurrences(of: " ", with: "").isEmpty else {return }
         
         for dep in realDeps {
-            guard let text = text, !dep.depName.elementsEqual(text) else {return}}// present alert message
+            guard let text = text, !dep.depName.elementsEqual(text) else {/*Alert*/return }}
         
         realDeps.append(department)
     }
@@ -60,6 +62,7 @@ extension DepartmentSelection: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DepartmentSelectionCell.reuseID, for: indexPath) as? DepartmentSelectionCell else {return UITableViewCell()}
         
         cell.depTextfield.delegate = self
+        
         cell.configureCell(at: indexPath.row)
         cell.depTextfield.text = realDeps[indexPath.row].depName
         department.depUID = indexPath.row.description

@@ -13,6 +13,7 @@ import UIKit
 class AddEmployee: UIViewController, didPressCloseButton, nextPerssedInDepSelection{
 
     let addEmpView = AddEmployeeView()
+    let choosingDepVC = ChoosingDepartment()
     var addEmployee = Employee()
     var fields = ["Name", "Email","Password", "Department", "Level", "Title", "Mobile"]
     
@@ -40,7 +41,7 @@ class AddEmployee: UIViewController, didPressCloseButton, nextPerssedInDepSelect
 
         switch button.tag {
         case 1:
-            print("foo - Dep.")
+            presentPopup()
         case 2:
             print("foo - Level")
         case 3:
@@ -49,6 +50,13 @@ class AddEmployee: UIViewController, didPressCloseButton, nextPerssedInDepSelect
         default:
             print("faild")
         }
+    }
+    
+    func presentPopup() {
+        choosingDepVC.modalPresentationStyle = .overCurrentContext
+        choosingDepVC.modalTransitionStyle = .crossDissolve
+        present(choosingDepVC, animated: true, completion: nil)
+        view.alpha = 0.3
     }
 }
 

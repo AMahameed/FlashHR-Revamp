@@ -27,19 +27,21 @@ class Employee {
     var name: String = ""
     var title: String = ""
     var mobile: String = ""
-    var department: String = ""
+    var depName: String = ""
+    var depUID: String = ""
     var isDeleted: Bool = false
     var level: Level = Level()
     var workTransactions: [WorkTansactions] = []
     
-    init(empUID: String = "", empImageData: Data = Data(), email: String = "", password: String = "", name: String = "", title: String = "", mobile: String = "", department: String = "", isDeleted: Bool = false, level: Level = Level(), workTransactions: [WorkTansactions] = []) {
+    init(empUID: String = "", empImageData: Data = Data(), email: String = "", password: String = "", name: String = "", title: String = "", mobile: String = "", depName: String = "", depUID: String = "", isDeleted: Bool = false, level: Level = Level(), workTransactions: [WorkTansactions] = []) {
         
         self.empUID = empUID
         self.empImageData = empImageData
         self.name = name
         self.mobile = mobile
         self.title = title
-        self.department = department
+        self.depName = depName
+        self.depUID = depUID
         self.password = password
         self.email = email
         self.isDeleted = isDeleted
