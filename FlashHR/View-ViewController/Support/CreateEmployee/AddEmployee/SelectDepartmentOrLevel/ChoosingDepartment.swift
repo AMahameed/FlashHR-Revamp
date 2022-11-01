@@ -12,11 +12,12 @@ class ChoosingDepartment: UIViewController{
     let closeButton = UIButton(type: .close)
     let tableView = UITableView()
     let popupBox = UIView()
+    var depOrLevel: Int = Int()
+    let levels = ["HR Manager", "HR Agent", "Manager", "Supervisor", "Regular"]
     
-    var departments: [Department] = []
+//    var departments: [Department] = []
     
     override func viewDidLoad() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.didGetDepsNotification(_:)), name: Notification.Name("departmentsArray"), object: nil)
         style()
         layout()
         tableView.delegate = self
@@ -27,21 +28,6 @@ class ChoosingDepartment: UIViewController{
         dismiss(animated: true)
         presentingViewController?.view.alpha = 1
     }
-
-//    @objc func didGetDepsNotification(_ notification: Notification) {
-//        let deps = notification.object as! [Department]
-//
-//        for dep in deps {
-//            self.departments.append(dep)
-//        }
-//    }
-    
-    func addedDepartments(){
-//        let depsSelection = DepartmentSelection()
-//        depsSelection.depsHandler = { departments in
-//            self.departments = departments
-//        }
-    }
 }
 
 extension ChoosingDepartment {
@@ -49,7 +35,6 @@ extension ChoosingDepartment {
     func style() {
         
         view.backgroundColor = .clear
-        presentingViewController?.view.alpha = 0.3
         
         popupBox.translatesAutoresizingMaskIntoConstraints = false
         popupBox.backgroundColor = .systemGray5
@@ -100,14 +85,23 @@ extension ChoosingDepartment {
 extension ChoosingDepartment: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        departments.count
+        if depOrLevel == 1{ return 1 /*Deps.count*/}else{ return levels.count}
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChoosingDepartmentCell.reuseID, for: indexPath) as? ChoosingDepartmentCell else {return UITableViewCell()}
         
-        cell.configureCell(at: indexPath.row, with: departments[indexPath.row].depName)
+        if depOrLevel == 1{
+            cell.configureCell(at: indexPath.row, with: "")
+        }else{
+            cell.configureCell(at: indexPath.row, with: levels[indexPath.row])
+        }
+        
+        cell.dismissHandler = { [weak self] dismiss in
+            guard let self = self else {return}
+            if dismiss {self.presentingViewController?.view.alpha = 1; self.dismiss(animated: dismiss)}
+        }
         
         return cell
     }

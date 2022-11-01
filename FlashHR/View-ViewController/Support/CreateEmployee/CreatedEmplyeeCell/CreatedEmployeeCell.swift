@@ -33,12 +33,15 @@ class CreatedEmployeeCell: UITableViewCell {
         super.prepareForReuse()
     }
     
-    func configure(name: String, title: String){ //, isDeleted: Bool
-        self.nameLabel.text = name
-        self.titleLabel.text = title
-//        self.empImage.image = UIImage(data: img)
-//        self.stackView.backgroundColor = isDeleted ? UIColor.systemGray : UIColor(named: "whiteBlue")
-//        self.isUserInteractionEnabled = isDeleted ? false : true
+    func configure(name: String, title: String, level: String, status: Bool){ //, isDeleted: Bool
+        nameLabel.text = name
+        titleLabel.text = title
+        levelLabel.text = level
+        statusLabel.text = status ? "Not Active" : "Active"
+        statusLabel.textColor = status ? UIColor.systemRed : UIColor.systemGreen
+//        empImage.image = UIImage(data: img)
+//        stackView.backgroundColor = isDeleted ? UIColor.systemGray : UIColor(named: "whiteBlue")
+//        isUserInteractionEnabled = isDeleted ? false : true
     }
 }
 
@@ -85,7 +88,6 @@ extension CreatedEmployeeCell {
         
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         statusLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        statusLabel.textColor = .label
 //        statusLabel.adjustsFontSizeToFitWidth = true
 //        statusLabel.minimumScaleFactor = 0.5
 //        statusLabel.numberOfLines = 1

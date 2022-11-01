@@ -40,20 +40,20 @@ class DepartmentSelectionBtnCell: UITableViewCell {
     }
     
     func configureBtnCell(at row: Int) {
-
-        switch row {
-        case 3:
-            nextButton.setTitle("select Department", for: [])
-            nextButton.tag = 1
-        case 4:
-            nextButton.setTitle("select Level", for: [])
-            nextButton.tag = 2
-        case 7:
-            nextButton.setTitle("save", for: [])
-            nextButton.tag = 3
-        default:
-            break
-        }
+        nextButton.setTitle("save", for: [])
+//        switch row {
+//        case 3:
+//            nextButton.setTitle("select Department", for: [])
+//            nextButton.tag = 1
+//        case 4:
+//            nextButton.setTitle("select Level", for: [])
+//            nextButton.tag = 2
+//        case 7:
+//            nextButton.setTitle("save", for: [])
+//            nextButton.tag = 3
+//        default:
+//            break
+//        }
     }
 }
 

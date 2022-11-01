@@ -60,7 +60,7 @@ extension CreateEmployee: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CreatedEmployeeCell.reuseID, for: indexPath) as? CreatedEmployeeCell else {return UITableViewCell()}
         
-        cell.configure(name: addedEmp[indexPath.row].name, title: addedEmp[indexPath.row].title)
+        cell.configure(name: addedEmp[indexPath.row].name, title: addedEmp[indexPath.row].title, level: addedEmp[indexPath.row].levelStr, status: addedEmp[indexPath.row].isDeleted)
         
         return cell
     }

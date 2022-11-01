@@ -31,9 +31,10 @@ class Employee {
     var depUID: String = ""
     var isDeleted: Bool = false
     var level: Level = Level()
+    var levelStr: String = ""
     var workTransactions: [WorkTansactions] = []
     
-    init(empUID: String = "", empImageData: Data = Data(), email: String = "", password: String = "", name: String = "", title: String = "", mobile: String = "", depName: String = "", depUID: String = "", isDeleted: Bool = false, level: Level = Level(), workTransactions: [WorkTansactions] = []) {
+    init(empUID: String = "", empImageData: Data = Data(), email: String = "", password: String = "", name: String = "", title: String = "", mobile: String = "", depName: String = "", depUID: String = "", isDeleted: Bool = false, level: Level = Level(), levelStr: String = "", workTransactions: [WorkTansactions] = []) {
         
         self.empUID = empUID
         self.empImageData = empImageData
@@ -46,6 +47,7 @@ class Employee {
         self.email = email
         self.isDeleted = isDeleted
         self.level = level
+        self.levelStr = levelStr
         self.workTransactions = workTransactions
     }
 }

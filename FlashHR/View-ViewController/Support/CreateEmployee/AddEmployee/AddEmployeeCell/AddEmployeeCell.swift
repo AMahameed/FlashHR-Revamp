@@ -13,7 +13,12 @@ class AddEmployeeCell: UITableViewCell{
     let typeLabel = UILabel()
     let divider = UIView()
     let textField = UITextField()
-    let saveButton = UIButton(type: .custom)
+    private var depOrLevelPickerView = UIPickerView()
+    private var pickerAccessory = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
+    private var levels = ["HR Manager", "HR Agent", "Manager", "Supervisor", "Regular"]
+    private var deps = ["HR", "IT", "PR"]
+    var depHandler: ((String)->())? = nil
+    var levelHandler: ((String)->())? = nil
     
     static let reuseID = "AddEmployeeCell"
     
@@ -21,6 +26,15 @@ class AddEmployeeCell: UITableViewCell{
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
         layout()
+        depOrLevelPickerView.delegate = self
+        depOrLevelPickerView.dataSource = self
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBtnClicked(_:)))
+        doneButton.tintColor = .label
+        pickerAccessory.items = [doneButton]
+    }
+    
+    @objc func doneBtnClicked(_ button: UIBarButtonItem?) {
+        textField.resignFirstResponder()
     }
 
     required init?(coder: NSCoder) {
@@ -29,21 +43,41 @@ class AddEmployeeCell: UITableViewCell{
     
     override func prepareForReuse() {
         textField.isSecureTextEntry = false
+        textField.keyboardType = .default
+        textField.inputView = nil
     }
     
-    func configureCell(field type: String, info: String?, at row: Int){
+    func configureCell(field type: String, info: String?, at row: Int, levelHandler: ((String)->())? = nil, depsHandler: ((String)->())? = nil){
         
         typeLabel.text = type
         textField.text = info ?? ""
+        self.depHandler = depsHandler
+        self.levelHandler = levelHandler
         
         switch row {
         case 1:
             textField.keyboardType = .emailAddress
         case 2:
             textField.isSecureTextEntry = true
+        case 3:
+            depOrLevelPickerView.tag = 1
+            textField.placeholder = "Select department"
+            textField.inputAccessoryView = pickerAccessory
+            textField.inputView = self.depOrLevelPickerView
+        case 4:
+            depOrLevelPickerView.tag = 2
+            textField.placeholder = "Select level"
+            textField.inputAccessoryView = pickerAccessory
+            textField.inputView = self.depOrLevelPickerView
+        case 6:
+            textField.keyboardType = .numberPad
         default:
             break
         }
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
     }
 }
 
@@ -54,6 +88,14 @@ extension AddEmployeeCell: UITextFieldDelegate{
         
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.clear
+        
+        depOrLevelPickerView.translatesAutoresizingMaskIntoConstraints = false
+        depOrLevelPickerView.sizeToFit()
+ 
+        pickerAccessory.translatesAutoresizingMaskIntoConstraints = false
+        pickerAccessory.barStyle = .default
+        pickerAccessory.sizeToFit()
+
         
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
         typeLabel.font = UIFont.preferredFont(forTextStyle: .body)
@@ -104,5 +146,35 @@ extension AddEmployeeCell: UITextFieldDelegate{
             textField.leadingAnchor.constraint(equalTo: divider.leadingAnchor),
             trailingAnchor.constraint(equalToSystemSpacingAfter: textField.trailingAnchor, multiplier: 3.5)
         ])
+    }
+}
+
+extension AddEmployeeCell: UIPickerViewDelegate, UIPickerViewDataSource{
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView.tag == 1{ return deps.count}else{ return levels.count }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView.tag == 1{ return deps[row] }else{ return levels[row] }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        if pickerView.tag == 1{
+            let dep = deps[row]
+            textField.text = dep
+            depHandler?(dep)
+//            textField.resignFirstResponder()
+        }else{
+            let level = levels[row]
+            textField.text = level
+            levelHandler?(level)
+//            textField.resignFirstResponder()
+        }
     }
 }
