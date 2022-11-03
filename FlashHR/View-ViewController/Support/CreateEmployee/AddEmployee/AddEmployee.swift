@@ -4,6 +4,7 @@
 //
 //  Created by Abdallah Mahameed on 23/10/2022.
 //
+
 protocol didAddNewEmp: AnyObject {
     func didAddEmployee(_ emp: Employee)
 }
@@ -15,7 +16,6 @@ class AddEmployee: UIViewController, didPressCloseButton, nextPerssedInDepSelect
     let addEmpView = AddEmployeeView()
     var addEmployee = Employee()
     var fields = ["Name", "Email","Password", "Department", "Level", "Title", "Mobile"]
-    let choosingDepVC = ChoosingDepartment()
     weak var delegate: didAddNewEmp?
     
     override func viewDidLoad() {
@@ -37,32 +37,9 @@ class AddEmployee: UIViewController, didPressCloseButton, nextPerssedInDepSelect
     }
     
     func didPressNextOrSave(_ button: UIButton) {
-        
         delegate?.didAddEmployee(addEmployee)
         dismiss(animated: true)
-
-//        switch button.tag {
-//        case 1:
-//            presentPopup(for: button.tag)
-//        case 2:
-//            presentPopup(for: button.tag)
-//        case 3:
-//            delegate?.didAddEmployee(addEmployee)
-//            dismiss(animated: true)
-//        default:
-//            print("faild")
-//        }
     }
-    
-    func presentPopup(for sender: Int) {
-        choosingDepVC.modalPresentationStyle = .overCurrentContext
-        choosingDepVC.modalTransitionStyle = .crossDissolve
-        choosingDepVC.depOrLevel = sender
-        present(choosingDepVC, animated: true)
-        view.alpha = 0.3
-    }
-    
-    
 }
 
 //MARK: tableView Delegate and DataSource
@@ -83,27 +60,24 @@ extension AddEmployee: UITableViewDelegate, UITableViewDataSource{
         cell.textField.delegate = self
         btnCell.delegate = self
         
-        if indexPath.row == 3{
-            cell.configureCell(field: fields[indexPath.row], info: getInfoFromModel(at: indexPath.row), at: indexPath.row, depsHandler:  { [weak self] dep in
+        switch indexPath.row {
+        case 3:
+            cell.configureCell(field: fields[indexPath.row], info: getInfoFromModel(at: indexPath.row), at: indexPath.row, depHandler:  { [weak self] dep, UID  in
                 guard let self = self else {return}
                 self.addEmployee.depName = dep
-//                self.addEmployee.depUID = 
-            })
-            
-        }else if indexPath.row == 4{
+                self.addEmployee.depUID = String(UID)})
+        case 4:
             cell.configureCell(field: fields[indexPath.row], info: getInfoFromModel(at: indexPath.row), at: indexPath.row, levelHandler:  { [weak self] level in
                 guard let self = self else {return}
                 self.addEmployee.levelStr = level
-                self.addEmployee.level = self.getLevel(level)
-            })
-            
-        }else if  indexPath.row == 7{ // 3 ..< 5 ~= indexPath.row
+                self.addEmployee.level = self.getLevel(level)})
+        case 7:
             btnCell.configureBtnCell(at: indexPath.row)
             return btnCell
-            
-        }else{
+        default:
             cell.configureCell(field: fields[indexPath.row], info: getInfoFromModel(at: indexPath.row), at: indexPath.row)
         }
+        
         return cell
     }
 }

@@ -17,7 +17,7 @@ class AddEmployeeCell: UITableViewCell{
     private var pickerAccessory = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
     private var levels = ["HR Manager", "HR Agent", "Manager", "Supervisor", "Regular"]
     private var deps = ["HR", "IT", "PR"]
-    var depHandler: ((String)->())? = nil
+    var depHandler: ((String,Int)->())? = nil
     var levelHandler: ((String)->())? = nil
     
     static let reuseID = "AddEmployeeCell"
@@ -47,11 +47,11 @@ class AddEmployeeCell: UITableViewCell{
         textField.inputView = nil
     }
     
-    func configureCell(field type: String, info: String?, at row: Int, levelHandler: ((String)->())? = nil, depsHandler: ((String)->())? = nil){
+    func configureCell(field type: String, info: String?, at row: Int, levelHandler: ((String)->())? = nil, depHandler: ((String,Int)->())? = nil){
         
         typeLabel.text = type
         textField.text = info ?? ""
-        self.depHandler = depsHandler
+        self.depHandler = depHandler
         self.levelHandler = levelHandler
         
         switch row {
@@ -168,13 +168,11 @@ extension AddEmployeeCell: UIPickerViewDelegate, UIPickerViewDataSource{
         if pickerView.tag == 1{
             let dep = deps[row]
             textField.text = dep
-            depHandler?(dep)
-//            textField.resignFirstResponder()
+            depHandler?(dep,row)
         }else{
             let level = levels[row]
             textField.text = level
             levelHandler?(level)
-//            textField.resignFirstResponder()
         }
     }
 }

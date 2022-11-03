@@ -1,5 +1,5 @@
 //
-//  Models.swift
+//  Objects.swift
 //  FlashHR
 //
 //  Created by Abdallah Mahameed on 20/10/2022.
